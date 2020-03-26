@@ -499,6 +499,31 @@ typedef enum RCC_CFGR2_PREDIV2_MASKS_Enumeration
 } RCC_CFGR2_PREDIV2_MASKS_enum;
 
 /*
+--| NAME: RCC_CFGR2_PREDIV1_MASKS_enum
+--| DESCRIPTION: RCC CFGR2 PREDIV1 division factor [4 bits, rw]
+*/
+typedef enum RCC_CFGR2_PREDIV1_MASKS_Enumeration
+{
+    RCC_CFGR2_PREDIV1_NO_DIVIDE = 0b0000u, // PREDIV1 input clock not divided
+    RCC_CFGR2_PREDIV1_DIV_2     = 0b0001u, // PREDIV1 input clock divided by 2
+    RCC_CFGR2_PREDIV1_DIV_3     = 0b0010u, // PREDIV1 input clock divided by 3
+    RCC_CFGR2_PREDIV1_DIV_4     = 0b0011u, // PREDIV1 input clock divided by 4
+    RCC_CFGR2_PREDIV1_DIV_5     = 0b0100u, // PREDIV1 input clock divided by 5
+    RCC_CFGR2_PREDIV1_DIV_6     = 0b0101u, // PREDIV1 input clock divided by 6
+    RCC_CFGR2_PREDIV1_DIV_7     = 0b0110u, // PREDIV1 input clock divided by 7
+    RCC_CFGR2_PREDIV1_DIV_8     = 0b0111u, // PREDIV1 input clock divided by 8
+    RCC_CFGR2_PREDIV1_DIV_9     = 0b1000u, // PREDIV1 input clock divided by 9
+    RCC_CFGR2_PREDIV1_DIV_10    = 0b1001u, // PREDIV1 input clock divided by 10
+    RCC_CFGR2_PREDIV1_DIV_11    = 0b1010u, // PREDIV1 input clock divided by 11
+    RCC_CFGR2_PREDIV1_DIV_12    = 0b1011u, // PREDIV1 input clock divided by 12
+    RCC_CFGR2_PREDIV1_DIV_13    = 0b1100u, // PREDIV1 input clock divided by 13
+    RCC_CFGR2_PREDIV1_DIV_14    = 0b1101u, // PREDIV1 input clock divided by 14
+    RCC_CFGR2_PREDIV1_DIV_15    = 0b1110u, // PREDIV1 input clock divided by 15
+    RCC_CFGR2_PREDIV1_DIV_16    = 0b1111u, // PREDIV1 input clock divided by 16
+    RCC_CFGR2_PREDIV1_SHIFT_AMT = 0u,      // Position of PREDIV1 in RCC CFGR2
+} RCC_CFGR2_PREDIV1_MASKS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
