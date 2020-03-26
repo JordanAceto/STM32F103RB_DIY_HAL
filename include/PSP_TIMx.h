@@ -98,39 +98,39 @@ typedef struct TIMx_Type
 */
 typedef enum TIMx_CR1_FLAGS_Enumeration
 {
-    TIMx_CR1_FLAG_ARPE = (1u << 7u), // Auto-reload preload enable [rw]
-    TIMx_CR1_FLAG_DIR  = (1u << 4u), // Direction [rw]
-    TIMx_CR1_FLAG_OPM  = (1u << 3u), // One-pulse mode [rw]
-    TIMx_CR1_FLAG_URS  = (1u << 2u), // Update request source [rw]
-    TIMx_CR1_FLAG_UDIS = (1u << 1u), // Update disable [rw]
-    TIMx_CR1_FLAG_CEN  = (1u << 0u), // Counter enable [rw]
+    TIMx_CR1_ARPE_FLAG = (1u << 7u), // Auto-reload preload enable [rw]
+    TIMx_CR1_DIR_FLAG  = (1u << 4u), // Direction [rw]
+    TIMx_CR1_OPM_FLAG  = (1u << 3u), // One-pulse mode [rw]
+    TIMx_CR1_URS_FLAG  = (1u << 2u), // Update request source [rw]
+    TIMx_CR1_UDIS_FLAG = (1u << 1u), // Update disable [rw]
+    TIMx_CR1_CEN_FLAG  = (1u << 0u), // Counter enable [rw]
 } TIMx_CR1_FLAGS_enum;
 
 /*
---| NAME: TIMx_CR1_CKD_enum
---| DESCRIPTION: TIMx CR1 Clock division [2 bits, rw]
+--| NAME: TIMx_CR1_CKD_MASKS_enum
+--| DESCRIPTION: TIMx CR1 Clock division masks [2 bits, rw]
 */
-typedef enum TIMx_CR1_CKD_Enumeration
+typedef enum TIMx_CR1_CKD_MASKS_Enumeration
 {
     TIMx_CR1_CKD_Tdts_EQUALS_Tck_int     = 0b00u, // t_DTS = t_CK_INT
     TIMx_CR1_CKD_Tdts_EQUALS_2_x_Tck_int = 0b01u, // t_DTS = 2 x t_CK_INT
     TIMx_CR1_CKD_Tdts_EQUALS_4x_Tck_int  = 0b10u, // t_DTS = 4 x t_CK_INT
     TIMx_CR1_CKD_RESERVED                = 0b11u, // reserved
     TIMx_CR1_CKD_SHIFT_AMT               = 8u,    // position of CKD in TIMx CR1
-} TIMx_CR1_CKD_enum;
+} TIMx_CR1_CKD_MASKS_enum;
 
 /*
---| NAME: TIMx_CR1_CMS_enum
---| DESCRIPTION: TIMx CR1 Center-aligned mode selection [2 bits, rw]
+--| NAME: TIMx_CR1_CMS_MASKS_enum
+--| DESCRIPTION: TIMx CR1 Center-aligned mode selection masks [2 bits, rw]
 */
-typedef enum TIMx_CR1_CMS_Enumeration
+typedef enum TIMx_CR1_CMS_MASKS_Enumeration
 {
     TIMx_CR1_CMS_EDGE_ALIGNED_MODE     = 0b00u, // Edge-aligned mode
     TIMx_CR1_CMS_CENTER_ALIGNED_MODE_1 = 0b01u, // Center-aligned mode 1
     TIMx_CR1_CMS_CENTER_ALIGNED_MODE_1 = 0b10u, // Center-aligned mode 2
     TIMx_CR1_CMS_CENTER_ALIGNED_MODE_1 = 0b11u, // Center-aligned mode 3
     TIMx_CR1_CMS_SHIFT_AMT             = 5u,    // position of CMS in TIMx CR1
-} TIMx_CR1_CMS_enum;
+} TIMx_CR1_CMS_MASKS_enum;
 
 /*
 --| NAME: TIMx_CR2_FLAGS_enum
@@ -138,15 +138,15 @@ typedef enum TIMx_CR1_CMS_Enumeration
 */
 typedef enum TIMx_CR2_FLAGS_Enumeration
 {
-    TIMx_CR2_FLAG_TI1S = (1u << 7u), // TI1 selection [rw]
-    TIMx_CR2_FLAG_CCDS = (1u << 3u), // Capture/compare DMA selection [rw]
+    TIMx_CR2_TI1S_FLAGS = (1u << 7u), // TI1 selection [rw]
+    TIMx_CR2_CCDS_FLAGS = (1u << 3u), // Capture/compare DMA selection [rw]
 } TIMx_CR2_FLAGS_enum;
 
 /*
---| NAME: TIMx_CR2_MMS_enum
---| DESCRIPTION: TIMx CR2 Master mode selection [3 bits, rw]
+--| NAME: TIMx_CR2_MMS_MASKS_enum
+--| DESCRIPTION: TIMx CR2 Master mode selection masks [3 bits, rw]
 */
-typedef enum TIMx_CR2_MMS_Enumeration
+typedef enum TIMx_CR2_MMS_MASKS_Enumeration
 {
     TIMx_CR2_MMS_RESET          = 0b000u, // UG bit from TIMx_EGR register used as trigger output
     TIMx_CR2_MMS_ENABLE         = 0b001u, // Counter enable signal, CNT_EN, used as trigger output
@@ -157,7 +157,7 @@ typedef enum TIMx_CR2_MMS_Enumeration
     TIMx_CR2_MMS_COMPARE_OC3REF = 0b110u, // OC3REF signal is used as trigger output
     TIMx_CR2_MMS_COMPARE_OC4REF = 0b111u, // OC4REF signal is used as trigger output
     TIMx_CR2_MMS_SHIFT_AMT      = 4u,     // position of MMS in TIMx CR2
-} TIMx_CR2_MMS_enum;
+} TIMx_CR2_MMS_MASKS_enum;
 
 /*
 --| NAME: TIMx_SMCR_FLAGS_enum
@@ -165,29 +165,29 @@ typedef enum TIMx_CR2_MMS_Enumeration
 */
 typedef enum TIMx_SMCR_FLAGS_Enumeration
 {
-    TIMx_SMCR_FLAG_ETP = (1u << 15u), // External trigger polarity [rw]
-    TIMx_SMCR_FLAG_EXE = (1u << 14u), // External clock enable [rw]
-    TIMx_SMCR_FLAG_MSM = (1u << 7u),  // Master/Slave mode [rw]
+    TIMx_SMCR_ETP_FLAG = (1u << 15u), // External trigger polarity [rw]
+    TIMx_SMCR_EXE_FLAG = (1u << 14u), // External clock enable [rw]
+    TIMx_SMCR_MSM_FLAG = (1u << 7u),  // Master/Slave mode [rw]
 } TIMx_SMCR_FLAGS_enum;
 
 /*
---| NAME: TIMx_SCMR_ETPS_enum
---| DESCRIPTION: TIMx SMCR External trigger prescaler [2 bits, rw]
+--| NAME: TIMx_SCMR_ETPS_MASKS_enum
+--| DESCRIPTION: TIMx SMCR External trigger prescaler masks [2 bits, rw]
 */
-typedef enum TIMx_SMCR_ETPS_Enumeration
+typedef enum TIMx_SMCR_ETPS_MASKS_Enumeration
 {
     TIMx_CR2_SMCR_ETPS_PRESCALER_OFF = 0b00u, // Prescaler OFF
     TIMx_CR2_SMCR_ETPS_ETRP_DIV_2    = 0b01u, // ETRP frequency divided by 2
     TIMx_CR2_SMCR_ETPS_ETRP_DIV_4    = 0b10u, // ETRP frequency divided by 4
     TIMx_CR2_SMCR_ETPS_ETRP_DIV_8    = 0b11u, // ETRP frequency divided by 8
     TIMx_CR2_SMCR_ETPS_SHIFT_AMT     = 12u,   // position of ETPS in TIMx SMCR
-} TIMx_SMCR_ETPS_enum;
+} TIMx_SMCR_ETPS_MASKS_enum;
 
 /*
---| NAME: TIMx_SCMR_ETF_enum
---| DESCRIPTION: TIMx SMCR External trigger prescaler [2 bits, rw]
+--| NAME: TIMx_SCMR_ETF_MASKS_enum
+--| DESCRIPTION: TIMx SMCR External trigger prescaler masks [2 bits, rw]
 */
-typedef enum TIMx_SMCR_ETF_Enumeration
+typedef enum TIMx_SMCR_ETF_MASKS_Enumeration
 {
     TIMx_CR2_SMCR_ETF_NO_FILTER      = 0b0000u, // Prescaler OFF
     TIMx_CR2_SMCR_ETF_FILTER_MODE_1  = 0b0001u, // f SAMPLING =f CK_INT , N=2
@@ -206,13 +206,13 @@ typedef enum TIMx_SMCR_ETF_Enumeration
     TIMx_CR2_SMCR_ETF_FILTER_MODE_14 = 0b1110u, // f SAMPLING =f DTS /32, N=6
     TIMx_CR2_SMCR_ETF_FILTER_MODE_15 = 0b1111u, // f SAMPLING =f DTS /32, N=8
     TIMx_CR2_SMCR_ETF_SHIFT_AMT      = 8u,      // position of ETF in TIMx SMCR
-} TIMx_SMCR_ETF_enum;
+} TIMx_SMCR_ETF_MASKS_enum;
 
 /*
---| NAME: TIMx_SCMR_TS_enum
---| DESCRIPTION: TIMx SMCR Trigger selection [3 bits, rw]
+--| NAME: TIMx_SCMR_TS_MASKS_enum
+--| DESCRIPTION: TIMx SMCR Trigger selection masks [3 bits, rw]
 */
-typedef enum TIMx_SMCR_TS_Enumeration
+typedef enum TIMx_SMCR_TS_MASKS_Enumeration
 {
     TIMx_CR2_SMCR_TS_INT_TRIG_0             = 0b000u, // Internal Trigger 0 (ITR0)
     TIMx_CR2_SMCR_TS_INT_TRIG_1             = 0b001u, // Internal Trigger 1 (ITR1)
@@ -223,13 +223,13 @@ typedef enum TIMx_SMCR_TS_Enumeration
     TIMx_CR2_SMCR_TS_FILTERED_TIMER_INPUT_1 = 0b110u, // Filtered Timer Input 2 (TI2FP2)
     TIMx_CR2_SMCR_TS_EXTERNAL_TRIGGER_INPUT = 0b111u, // External Trigger input (ETRF)
     TIMx_CR2_SMCR_TS_SHIFT_AMT              = 4u,     // position of TS in TIMx SMCR
-} TIMx_SMCR_TS_enum;
+} TIMx_SMCR_TS_MASKS_enum;
 
 /*
---| NAME: TIMx_SMCR_SMS_enum
---| DESCRIPTION: TIMx SMCR Slave mode selection [3 bits, rw]
+--| NAME: TIMx_SMCR_SMS_MASKS_enum
+--| DESCRIPTION: TIMx SMCR Slave mode selection masks [3 bits, rw]
 */
-typedef enum TIMx_SMCR_SMS_Enumeration
+typedef enum TIMx_SMCR_SMS_MASKS_Enumeration
 {
     TIMx_CR2_SMCR_SMS_SLAVE_MODE_DISABLED = 0b000u, // Slave mode disabled
     TIMx_CR2_SMCR_SMS_ENCODER_MODE_1      = 0b001u, // Encoder mode 1
@@ -240,7 +240,7 @@ typedef enum TIMx_SMCR_SMS_Enumeration
     TIMx_CR2_SMCR_SMS_TRIGGER_MODE        = 0b110u, // Trigger Mode
     TIMx_CR2_SMCR_SMS_EXT_CLOCK_MODE_1    = 0b111u, // External Clock Mode 1
     TIMx_CR2_SMCR_SMS_SHIFT_AMT           = 0u,     // position of SMS in TIMx SMCR
-} TIMx_SMCR_SMS_enum;
+} TIMx_SMCR_SMS_MASKS_enum;
 
 /*
 --| NAME: TIMx_DIER_FLAGS_enum
@@ -248,18 +248,18 @@ typedef enum TIMx_SMCR_SMS_Enumeration
 */
 typedef enum TIMx_DIER_FLAGS_Enumeration
 {
-    TIMx_DIER_FLAG_TDE   = (1u << 14u), // Trigger DMA request enable [rw]
-    TIMx_DIER_FLAG_CC4DE = (1u << 12u), // Capture/Compare 4 DMA request enable [rw]
-    TIMx_DIER_FLAG_CC3DE = (1u << 11u), // Capture/Compare 3 DMA request enable [rw]
-    TIMx_DIER_FLAG_CC2DE = (1u << 10u), // Capture/Compare 2 DMA request enable [rw]
-    TIMx_DIER_FLAG_CC1DE = (1u << 9u),  // Capture/Compare 1 DMA request enable [rw]
-    TIMx_DIER_FLAG_UDE   = (1u << 8u),  // Update DMA request enable [rw]
-    TIMx_DIER_FLAG_TIE   = (1u << 6u),  // Trigger interrupt enable [rw]
-    TIMx_DIER_FLAG_CC4IE = (1u << 4u),  // Capture/Compare 4 interrupt enable [rw]
-    TIMx_DIER_FLAG_CC3IE = (1u << 3u),  // Capture/Compare 3 interrupt enable [rw]
-    TIMx_DIER_FLAG_CC2IE = (1u << 2u),  // Capture/Compare 2 interrupt enable [rw]
-    TIMx_DIER_FLAG_CC1IE = (1u << 1u),  // Capture/Compare 1 interrupt enable [rw]
-    TIMx_DIER_FLAG_UIE   = (1u << 0u),  // Update interrupt enable [rw]
+    TIMx_DIER_TDE_FLAG   = (1u << 14u), // Trigger DMA request enable [rw]
+    TIMx_DIER_CC4DE_FLAG = (1u << 12u), // Capture/Compare 4 DMA request enable [rw]
+    TIMx_DIER_CC3DE_FLAG = (1u << 11u), // Capture/Compare 3 DMA request enable [rw]
+    TIMx_DIER_CC2DE_FLAG = (1u << 10u), // Capture/Compare 2 DMA request enable [rw]
+    TIMx_DIER_CC1DE_FLAG = (1u << 9u),  // Capture/Compare 1 DMA request enable [rw]
+    TIMx_DIER_UDE_FLAG   = (1u << 8u),  // Update DMA request enable [rw]
+    TIMx_DIER_TIE_FLAG   = (1u << 6u),  // Trigger interrupt enable [rw]
+    TIMx_DIER_CC4IE_FLAG = (1u << 4u),  // Capture/Compare 4 interrupt enable [rw]
+    TIMx_DIER_CC3IE_FLAG = (1u << 3u),  // Capture/Compare 3 interrupt enable [rw]
+    TIMx_DIER_CC2IE_FLAG = (1u << 2u),  // Capture/Compare 2 interrupt enable [rw]
+    TIMx_DIER_CC1IE_FLAG = (1u << 1u),  // Capture/Compare 1 interrupt enable [rw]
+    TIMx_DIER_UIE_FLAG   = (1u << 0u),  // Update interrupt enable [rw]
 } TIMx_DIER_FLAGS_enum;
 
 /*
@@ -268,16 +268,16 @@ typedef enum TIMx_DIER_FLAGS_Enumeration
 */
 typedef enum TIMx_SR_FLAGS_Enumeration
 {
-    TIMx_SR_FLAG_CC4OF = (1u << 12u), // Capture/Compare 4 overcapture flag [rc_w0]
-    TIMx_SR_FLAG_CC3OF = (1u << 11u), // Capture/Compare 3 overcapture flag [rc_w0]
-    TIMx_SR_FLAG_CC2OF = (1u << 10u), // Capture/Compare 2 overcapture flag [rc_w0]
-    TIMx_SR_FLAG_CC1OF = (1u << 9u),  // Capture/Compare 1 overcapture flag [rc_w0]
-    TIMx_SR_FLAG_TIF   = (1u << 6u),  // Trigger interrupt flag [rc_w0]
-    TIMx_SR_FLAG_CC4IF = (1u << 4u),  // Capture/Compare 4 interrupt flag [rc_w0]
-    TIMx_SR_FLAG_CC3IF = (1u << 3u),  // Capture/Compare 3 interrupt flag [rc_w0]
-    TIMx_SR_FLAG_CC2IF = (1u << 2u),  // Capture/Compare 2 interrupt flag [rc_w0]
-    TIMx_SR_FLAG_CC1IF = (1u << 1u),  // Capture/Compare 1 interrupt flag [rc_w0]
-    TIMx_SR_FLAG_UIF   = (1u << 0u),  // Update interrupt flag [rc_w0]
+    TIMx_SR_CC4OF_FLAG = (1u << 12u), // Capture/Compare 4 overcapture flag [rc_w0]
+    TIMx_SR_CC3OF_FLAG = (1u << 11u), // Capture/Compare 3 overcapture flag [rc_w0]
+    TIMx_SR_CC2OF_FLAG = (1u << 10u), // Capture/Compare 2 overcapture flag [rc_w0]
+    TIMx_SR_CC1OF_FLAG = (1u << 9u),  // Capture/Compare 1 overcapture flag [rc_w0]
+    TIMx_SR_TIF_FLAG   = (1u << 6u),  // Trigger interrupt flag [rc_w0]
+    TIMx_SR_CC4IF_FLAG = (1u << 4u),  // Capture/Compare 4 interrupt flag [rc_w0]
+    TIMx_SR_CC3IF_FLAG = (1u << 3u),  // Capture/Compare 3 interrupt flag [rc_w0]
+    TIMx_SR_CC2IF_FLAG = (1u << 2u),  // Capture/Compare 2 interrupt flag [rc_w0]
+    TIMx_SR_CC1IF_FLAG = (1u << 1u),  // Capture/Compare 1 interrupt flag [rc_w0]
+    TIMx_SR_UIF_FLAG   = (1u << 0u),  // Update interrupt flag [rc_w0]
 } TIMx_SR_FLAGS_enum;
 
 /*
@@ -286,12 +286,12 @@ typedef enum TIMx_SR_FLAGS_Enumeration
 */
 typedef enum TIMx_EGR_FLAGS_Enumeration
 {
-    TIMx_EGR_FLAG_TG   = (1u << 6u), // Trigger generation [w]
-    TIMx_EGR_FLAG_CC4G = (1u << 4u), // Capture/compare 4 generation [w]
-    TIMx_EGR_FLAG_CC3G = (1u << 3u), // Capture/compare 3 generation [w]
-    TIMx_EGR_FLAG_CC2G = (1u << 2u), // Capture/compare 2 generation [w]
-    TIMx_EGR_FLAG_CC1G = (1u << 1u), // Capture/compare 1 generation [w]
-    TIMx_EGR_FLAG_UG   = (1u << 0u), // Update generation [w]
+    TIMx_EGR_TG_FLAG   = (1u << 6u), // Trigger generation [w]
+    TIMx_EGR_CC4G_FLAG = (1u << 4u), // Capture/compare 4 generation [w]
+    TIMx_EGR_CC3G_FLAG = (1u << 3u), // Capture/compare 3 generation [w]
+    TIMx_EGR_CC2G_FLAG = (1u << 2u), // Capture/compare 2 generation [w]
+    TIMx_EGR_CC1G_FLAG = (1u << 1u), // Capture/compare 1 generation [w]
+    TIMx_EGR_UG_FLAG   = (1u << 0u), // Update generation [w]
 } TIMx_EGR_FLAGS_enum;
 
 /*
