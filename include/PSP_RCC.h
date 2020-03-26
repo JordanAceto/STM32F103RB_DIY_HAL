@@ -427,6 +427,53 @@ typedef enum RCC_AHBRSTR_FLAGS_Enumeration
 } RCC_AHBRSTR_FLAGS_enum;
 
 /*
+--| NAME: RCC_CFGR2_FLAGS_enum
+--| DESCRIPTION: RCC Clock configuration register2 flags
+*/
+typedef enum RCC_CFGR2_FLAGS_Enumeration
+{
+    RCC_CFGR2_I2S3SRC_FLAG    = (1u << 18u), // I2S3 clock source [rw]
+    RCC_CFGR2_I2S2SRC_FLAG    = (1u << 17u), // I2S2 clock source [rw]
+    RCC_CFGR2_PREDIV1SRC_FLAG = (1u << 16u), // PREDIV1 entry clock source [rw]
+} RCC_CFGR2_FLAGS_enum;
+
+/*
+--| NAME: RCC_CFGR2_PLL3MUL_MASKS_enum
+--| DESCRIPTION: RCC CFGR2 PLL3 Multiplication Factor [4 bits, rw]
+*/
+typedef enum RCC_CFGR2_PLL3MUL_MASKS_Enumeration
+{
+    RCC_CFGR2_PLL3MUL_X_8       = 0b0110u, // PLL3 clock entry x 8
+    RCC_CFGR2_PLL3MUL_X_9       = 0b0111u, // PLL3 clock entry x 9
+    RCC_CFGR2_PLL3MUL_X_10      = 0b1000u, // PLL3 clock entry x 10
+    RCC_CFGR2_PLL3MUL_X_11      = 0b1001u, // PLL3 clock entry x 11
+    RCC_CFGR2_PLL3MUL_X_12      = 0b1010u, // PLL3 clock entry x 12
+    RCC_CFGR2_PLL3MUL_X_13      = 0b1011u, // PLL3 clock entry x 13
+    RCC_CFGR2_PLL3MUL_X_14      = 0b1100u, // PLL3 clock entry x 14
+    RCC_CFGR2_PLL3MUL_X_16      = 0b1110u, // PLL3 clock entry x 16
+    RCC_CFGR2_PLL3MUL_X_20      = 0b1111u, // PLL3 clock entry x 20
+    RCC_CFGR2_PLL3MUL_SHIFT_AMT = 12u,     // Position of PLL3MUL in RCC CFGR2
+} RCC_CFGR2_PLL3MUL_MASKS_enum;
+
+/*
+--| NAME: RCC_CFGR2_PLL2MUL_MASKS_enum
+--| DESCRIPTION: RCC CFGR2 PLL2 Multiplication Factor [4 bits, rw]
+*/
+typedef enum RCC_CFGR2_PLL2MUL_MASKS_Enumeration
+{
+    RCC_CFGR2_PLL2MUL_X_8       = 0b0110u, // PLL2 clock entry x 8
+    RCC_CFGR2_PLL2MUL_X_9       = 0b0111u, // PLL2 clock entry x 9
+    RCC_CFGR2_PLL2MUL_X_10      = 0b1000u, // PLL2 clock entry x 10
+    RCC_CFGR2_PLL2MUL_X_11      = 0b1001u, // PLL2 clock entry x 11
+    RCC_CFGR2_PLL2MUL_X_12      = 0b1010u, // PLL2 clock entry x 12
+    RCC_CFGR2_PLL2MUL_X_13      = 0b1011u, // PLL2 clock entry x 13
+    RCC_CFGR2_PLL2MUL_X_14      = 0b1100u, // PLL2 clock entry x 14
+    RCC_CFGR2_PLL2MUL_X_16      = 0b1110u, // PLL2 clock entry x 16
+    RCC_CFGR2_PLL2MUL_X_20      = 0b1111u, // PLL2 clock entry x 20
+    RCC_CFGR2_PLL2MUL_SHIFT_AMT = 8u,      // Position of PLL3MUL in RCC CFGR2
+} RCC_CFGR2_PLL2MUL_MASKS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
