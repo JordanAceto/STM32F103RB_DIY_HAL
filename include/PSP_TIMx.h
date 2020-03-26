@@ -309,6 +309,40 @@ typedef enum TIMx_CCMR1_FLAGS_Enumeration
 } TIMx_CCMR1_FLAGS_enum;
 
 /*
+--| NAME: TIMx_CCMR1_OC2M_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Output compare 2 mode masks [3 bits, rw]
+*/
+typedef enum TIMx_CCMR1_OC2M_MASKS_Enumeration
+{
+    TIMx_CCMR1_OC2M_FROZEN                  = 0b000u, // Frozen
+    TIMx_CCMR1_OC2M_ACTIVE_LEVEL_ON_MATCH   = 0b001u, // Set channel 2 to active level on match
+    TIMx_CCMR1_OC2M_INACTIVE_LEVEL_ON_MATCH = 0b010u, // Set channel 2 to inactive level on match
+    TIMx_CCMR1_OC2M_TOGGLE                  = 0b011u, // OC2REF toggles when TIMx_CNT=TIMx_CCR2
+    TIMx_CCMR1_OC2M_FORCE_INACTIVE_LEVEL    = 0b100u, // Force inactive level - OC2REF is forced low
+    TIMx_CCMR1_OC2M_FORCE_ACTIVE_LEVEL      = 0b101u, // Force active level - OC2REF is forced high
+    TIMx_CCMR1_OC2M_PWM_MODE_1              = 0b110u, // PWM mode 1
+    TIMx_CCMR1_OC2M_PWM_MODE_2              = 0b111u, // PWM mode 2
+    TIMx_CCMR1_OC2M_SHIFT_AMT               = 12u,    // position of OC2M in TIMx CCMR1
+} TIMx_CCMR1_OC2M_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR1_OC1M_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Output compare 1 mode masks [3 bits, rw]
+*/
+typedef enum TIMx_CCMR1_OC1M_MASKS_Enumeration
+{
+    TIMx_CCMR1_OC1M_FROZEN                  = 0b000u, // Frozen
+    TIMx_CCMR1_OC1M_ACTIVE_LEVEL_ON_MATCH   = 0b001u, // Set channel 1 to active level on match
+    TIMx_CCMR1_OC1M_INACTIVE_LEVEL_ON_MATCH = 0b010u, // Set channel 1 to inactive level on match
+    TIMx_CCMR1_OC1M_TOGGLE                  = 0b011u, // OC1REF toggles when TIMx_CNT=TIMx_CCR1
+    TIMx_CCMR1_OC1M_FORCE_INACTIVE_LEVEL    = 0b100u, // Force inactive level - OC1REF is forced low
+    TIMx_CCMR1_OC1M_FORCE_ACTIVE_LEVEL      = 0b101u, // Force active level - OC1REF is forced high
+    TIMx_CCMR1_OC1M_PWM_MODE_1              = 0b110u, // PWM mode 1
+    TIMx_CCMR1_OC1M_PWM_MODE_2              = 0b111u, // PWM mode 2
+    TIMx_CCMR1_OC1M_SHIFT_AMT               = 4u,     // position of OC1M in TIMx CCMR1
+} TIMx_CCMR1_OC1M_MASKS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
