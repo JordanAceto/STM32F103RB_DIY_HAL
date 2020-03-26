@@ -383,7 +383,7 @@ typedef enum RCC_BDCR_FLAGS_Enumeration
     RCC_BDCR_RTCEN_FLAG  = (1u << 15u), // RTC clock enable [rw]
     RCC_BDCR_LSEBYP_FLAG = (1u << 2u),  // External Low Speed oscillator bypass [rw]
     RCC_BDCR_LSERDY_FLAG = (1u << 1u),  // External Low Speed oscillator ready [r]
-    RCC_BDCR_LSEON_FLAG  = (1u << 0u),  // External Low Speed oscillator enablee [rw]
+    RCC_BDCR_LSEON_FLAG  = (1u << 0u),  // External Low Speed oscillator enable [rw]
 } RCC_BDCR_FLAGS_enum;
 
 /*
@@ -398,6 +398,23 @@ typedef enum RCC_BDCR_RTCSEL_MASKS_Enumeration
     RCC_BDCR_RTCSEL_HSE_DIV_128_AS_RTC = 0b11u, // HSE oscillator clock divided by 128 used as RTC clock
     RCC_BDCR_RTCSEL_SHIFT_AMT          = 8u,    // Position of RTCSEL in RCC BDCR
 } RCC_BDCR_RTCSEL_MASKS_enum;
+
+/*
+--| NAME: RCC_CSR_FLAGS_enum
+--| DESCRIPTION: RCC Control/status register flags
+*/
+typedef enum RCC_CSR_FLAGS_Enumeration
+{
+    RCC_CSR_LPWRRSTF_FLAG = (1u << 31u), // Low-power reset flag [rw]
+    RCC_CSR_WWDGRSTF_FLAG = (1u << 30u), // Window watchdog reset flag [rw]
+    RCC_CSR_IWDGRSTF_FLAG = (1u << 29u), // Independent watchdog reset flag [rw]
+    RCC_CSR_SFTRSTF_FLAG  = (1u << 28u), // Software reset flag [rw]
+    RCC_CSR_PORRSTF_FLAG  = (1u << 27u), // POR/PDR reset flag [rw]
+    RCC_CSR_PINRSTF_FLAG  = (1u << 26u), // PIN reset flag [rw]
+    RCC_CSR_RMVF_FLAG     = (1u << 24u), // Remove reset flag [rw]
+    RCC_CSR_LSIRDY_FLAG   = (1u << 1u),  // Internal low speed oscillator ready [r]
+    RCC_CSR_LSION_FLAG    = (1u << 0u),  // Internal low speed oscillator enable [rw]
+} RCC_CSR_FLAGS_enum;
 
 /*
 --|----------------------------------------------------------------------------|
