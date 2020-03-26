@@ -445,6 +445,156 @@ typedef enum TIMx_CCMR1_IC1PSC_MASKS_Enumeration
 } TIMx_CCMR1_IC1PSC_MASKS_enum;
 
 /*
+--| NAME: TIMx_CCMR2_FLAGS_enum
+--| DESCRIPTION: TIMx capture/compare mode register 2 flags
+*/
+typedef enum TIMx_CCMR2_FLAGS_Enumeration
+{
+    TIMx_CCMR2_OC4CE_FLAG = (1u << 15u), // Output compare 4 clear enable [rw]
+    TIMx_CCMR2_OC4PE_FLAG = (1u << 11u), // Output compare 4 preload enable [rw]
+    TIMx_CCMR2_OC4FE_FLAG = (1u << 10u), // Output compare 4 fast enable [rw]
+    TIMx_CCMR2_OC3CE_FLAG = (1u << 7u),  // Output compare 3 clear enable [rw]
+    TIMx_CCMR2_OC3PE_FLAG = (1u << 3u),  // Output compare 3 preload enable [rw]
+    TIMx_CCMR2_OC3FE_FLAG = (1u << 2u),  // Output compare 3 fast enable [rw]
+} TIMx_CCMR2_FLAGS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_OC4M_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Output compare 4 mode masks [3 bits, rw]
+*/
+typedef enum TIMx_CCMR2_OC4M_MASKS_Enumeration
+{
+    TIMx_CCMR2_OC4M_FROZEN                  = 0b000u, // Frozen
+    TIMx_CCMR2_OC4M_ACTIVE_LEVEL_ON_MATCH   = 0b001u, // Set channel 4 to active level on match
+    TIMx_CCMR2_OC4M_INACTIVE_LEVEL_ON_MATCH = 0b010u, // Set channel 4 to inactive level on match
+    TIMx_CCMR2_OC4M_TOGGLE                  = 0b011u, // OC4REF toggles when TIMx_CNT=TIMx_CCR4
+    TIMx_CCMR2_OC4M_FORCE_INACTIVE_LEVEL    = 0b100u, // Force inactive level - OC4REF is forced low
+    TIMx_CCMR2_OC4M_FORCE_ACTIVE_LEVEL      = 0b101u, // Force active level - OC4REF is forced high
+    TIMx_CCMR2_OC4M_PWM_MODE_1              = 0b110u, // PWM mode 1
+    TIMx_CCMR2_OC4M_PWM_MODE_2              = 0b111u, // PWM mode 2
+    TIMx_CCMR2_OC4M_SHIFT_AMT               = 12u,    // position of OC4M in TIMx CCMR2
+} TIMx_CCMR2_OC4M_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_CC4S_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Capture/Compare 4 selection masks [2 bits, rw]
+*/
+typedef enum TIMx_CCMR2_CC4S_MASKS_Enumeration
+{
+    TIMx_CCMR2_CC4S_OUTPUT        = 0b00u, // CC4 channel is configured as output
+    TIMx_CCMR2_CC4S_INPUT_MAP_TI4 = 0b01u, // CC4 channel is configured as input, IC4 is mapped on TI4
+    TIMx_CCMR2_CC4S_INPUT_MAP_TI3 = 0b10u, // CC4 channel is configured as input, IC4 is mapped on TI3
+    TIMx_CCMR2_CC4S_INPUT_MAP_TRC = 0b11u, // CC4 channel is configured as input, IC4 is mapped on TRC
+    TIMx_CCMR2_CC4S_SHIFT_AMT     = 8u,    // position of CC4S in TIMx CCMR2
+} TIMx_CCMR2_CC4S_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_OC3M_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Output compare 3 mode masks [3 bits, rw]
+*/
+typedef enum TIMx_CCMR1_OC1M_MASKS_Enumeration
+{
+    TIMx_CCMR2_OC3M_FROZEN                  = 0b000u, // Frozen
+    TIMx_CCMR2_OC3M_ACTIVE_LEVEL_ON_MATCH   = 0b001u, // Set channel 3 to active level on match
+    TIMx_CCMR2_OC3M_INACTIVE_LEVEL_ON_MATCH = 0b010u, // Set channel 3 to inactive level on match
+    TIMx_CCMR2_OC3M_TOGGLE                  = 0b011u, // OC3REF toggles when TIMx_CNT=TIMx_CCR3
+    TIMx_CCMR2_OC3M_FORCE_INACTIVE_LEVEL    = 0b100u, // Force inactive level - OC3REF is forced low
+    TIMx_CCMR2_OC3M_FORCE_ACTIVE_LEVEL      = 0b101u, // Force active level - OC3REF is forced high
+    TIMx_CCMR2_OC3M_PWM_MODE_1              = 0b110u, // PWM mode 1
+    TIMx_CCMR2_OC3M_PWM_MODE_2              = 0b111u, // PWM mode 2
+    TIMx_CCMR2_OC3M_SHIFT_AMT               = 4u,     // position of OC3M in TIMx CCMR2
+} TIMx_CCMR2_OC3M_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_CC3S_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Capture/Compare 3 selection masks [2 bits, rw]
+*/
+typedef enum TIMx_CCMR2_CC3S_MASKS_Enumeration
+{
+    TIMx_CCMR2_CC3S_OUTPUT        = 0b00u, // CC3 channel is configured as output
+    TIMx_CCMR2_CC3S_INPUT_MAP_TI3 = 0b01u, // CC3 channel is configured as input, IC3 is mapped on TI3
+    TIMx_CCMR2_CC3S_INPUT_MAP_TI4 = 0b10u, // CC3 channel is configured as input, IC3 is mapped on TI4
+    TIMx_CCMR2_CC3S_INPUT_MAP_TRC = 0b11u, // CC3 channel is configured as input, IC3 is mapped on TRC
+    TIMx_CCMR2_CC3S_SHIFT_AMT     = 0u,    // position of CC3S in TIMx CCMR2
+} TIMx_CCMR2_CC3S_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_IC4F_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Input capture 4 filter masks [4 bits, rw]
+*/
+typedef enum TIMx_CCMR2_IC4F_MASKS_Enumeration
+{
+    TIMx_CCMR2_IC4F_NO_FILTER      = 0b0000u, // Prescaler OFF
+    TIMx_CCMR2_IC4F_FILTER_MODE_1  = 0b0001u, // f SAMPLING =f CK_INT , N=2
+    TIMx_CCMR2_IC4F_FILTER_MODE_2  = 0b0010u, // f SAMPLING =f CK_INT , N=4
+    TIMx_CCMR2_IC4F_FILTER_MODE_3  = 0b0011u, // f SAMPLING =f CK_INT , N=8^2
+    TIMx_CCMR2_IC4F_FILTER_MODE_4  = 0b0100u, // f SAMPLING =f DTS /2, N=6
+    TIMx_CCMR2_IC4F_FILTER_MODE_5  = 0b0101u, // f SAMPLING =f DTS /2, N=8
+    TIMx_CCMR2_IC4F_FILTER_MODE_6  = 0b0110u, // f SAMPLING =f DTS /4, N=6^2
+    TIMx_CCMR2_IC4F_FILTER_MODE_7  = 0b0111u, // f SAMPLING =f DTS /4, N=8
+    TIMx_CCMR2_IC4F_FILTER_MODE_8  = 0b1000u, // f SAMPLING =f DTS /8, N=6
+    TIMx_CCMR2_IC4F_FILTER_MODE_9  = 0b1001u, // f SAMPLING =f DTS /8, N=8
+    TIMx_CCMR2_IC4F_FILTER_MODE_10 = 0b1010u, // f SAMPLING =f DTS /16, N=5
+    TIMx_CCMR2_IC4F_FILTER_MODE_11 = 0b1011u, // f SAMPLING =f DTS /16, N=6
+    TIMx_CCMR2_IC4F_FILTER_MODE_12 = 0b1100u, // f SAMPLING =f DTS /16, N=8
+    TIMx_CCMR2_IC4F_FILTER_MODE_13 = 0b1101u, // f SAMPLING =f DTS /32, N=5
+    TIMx_CCMR2_IC4F_FILTER_MODE_14 = 0b1110u, // f SAMPLING =f DTS /32, N=6
+    TIMx_CCMR2_IC4F_FILTER_MODE_15 = 0b1111u, // f SAMPLING =f DTS /32, N=8
+    TIMx_CCMR2_IC4F_SHIFT_AMT      = 12u,     // position of IC4F in TIMx CCMR2
+} TIMx_CCMR2_IC4F_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_IC4PSC_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Input capture 4 prescaler masks [2 bits, rw]
+*/
+typedef enum TIMx_CCMR2_IC4PSC_MASKS_Enumeration
+{
+    TIMx_CCMR2_IC4PSC_NO_PRESCALER           = 0b00u, // no prescaler
+    TIMx_CCMR2_IC4PSC_CAPTURE_EVERY_2_EVENTS = 0b01u, // capture is done once every 2 events
+    TIMx_CCMR2_IC4PSC_CAPTURE_EVERY_4_EVENTS = 0b10u, // capture is done once every 4 events
+    TIMx_CCMR2_IC4PSC_CAPTURE_EVERY_8_EVENTS = 0b11u, // capture is done once every 8 events
+    TIMx_CCMR2_IC4PSC_SHIFT_AMT              = 10u    // position of IC4PSC in TIMx CCMR2
+} TIMx_CCMR2_IC4PSC_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_IC3F_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Input capture 3 filter masks [4 bits, rw]
+*/
+typedef enum TIMx_CCMR2_IC3F_MASKS_Enumeration
+{
+    TIMx_CCMR2_IC3F_NO_FILTER      = 0b0000u, // Prescaler OFF
+    TIMx_CCMR2_IC3F_FILTER_MODE_1  = 0b0001u, // f SAMPLING =f CK_INT , N=2
+    TIMx_CCMR2_IC3F_FILTER_MODE_2  = 0b0010u, // f SAMPLING =f CK_INT , N=4
+    TIMx_CCMR2_IC3F_FILTER_MODE_3  = 0b0011u, // f SAMPLING =f CK_INT , N=8^2
+    TIMx_CCMR2_IC3F_FILTER_MODE_4  = 0b0100u, // f SAMPLING =f DTS /2, N=6
+    TIMx_CCMR2_IC3F_FILTER_MODE_5  = 0b0101u, // f SAMPLING =f DTS /2, N=8
+    TIMx_CCMR2_IC3F_FILTER_MODE_6  = 0b0110u, // f SAMPLING =f DTS /4, N=6^2
+    TIMx_CCMR2_IC3F_FILTER_MODE_7  = 0b0111u, // f SAMPLING =f DTS /4, N=8
+    TIMx_CCMR2_IC3F_FILTER_MODE_8  = 0b1000u, // f SAMPLING =f DTS /8, N=6
+    TIMx_CCMR2_IC3F_FILTER_MODE_9  = 0b1001u, // f SAMPLING =f DTS /8, N=8
+    TIMx_CCMR2_IC3F_FILTER_MODE_10 = 0b1010u, // f SAMPLING =f DTS /16, N=5
+    TIMx_CCMR2_IC3F_FILTER_MODE_11 = 0b1011u, // f SAMPLING =f DTS /16, N=6
+    TIMx_CCMR2_IC3F_FILTER_MODE_12 = 0b1100u, // f SAMPLING =f DTS /16, N=8
+    TIMx_CCMR2_IC3F_FILTER_MODE_13 = 0b1101u, // f SAMPLING =f DTS /32, N=5
+    TIMx_CCMR2_IC3F_FILTER_MODE_14 = 0b1110u, // f SAMPLING =f DTS /32, N=6
+    TIMx_CCMR2_IC3F_FILTER_MODE_15 = 0b1111u, // f SAMPLING =f DTS /32, N=8
+    TIMx_CCMR2_IC3F_SHIFT_AMT      = 4u,      // position of IC3F in TIMx CCMR2
+} TIMx_CCMR2_IC3F_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR2_IC3PSC_MASKS_enum
+--| DESCRIPTION: TIMx CCMR2 Input capture 3 prescaler masks [2 bits, rw]
+*/
+typedef enum TIMx_CCMR2_IC3PSC_MASKS_Enumeration
+{
+    TIMx_CCMR2_IC3PSC_NO_PRESCALER           = 0b00u, // no prescaler
+    TIMx_CCMR2_IC3PSC_CAPTURE_EVERY_2_EVENTS = 0b01u, // capture is done once every 2 events
+    TIMx_CCMR2_IC3PSC_CAPTURE_EVERY_4_EVENTS = 0b10u, // capture is done once every 4 events
+    TIMx_CCMR2_IC3PSC_CAPTURE_EVERY_8_EVENTS = 0b11u, // capture is done once every 8 events
+    TIMx_CCMR2_IC3PSC_SHIFT_AMT              = 2u     // position of IC3PSC in TIMx CCMR2
+} TIMx_CCMR2_IC3PSC_MASKS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
