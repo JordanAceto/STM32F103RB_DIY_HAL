@@ -20,6 +20,7 @@
 --|----------------------------------------------------------------------------|
 */
 
+#include "Common_Masks.h"
 #include "Common_Typedefs.h"
 #include "PSP_Peripherals_Memory_Map.h"
 
@@ -86,8 +87,8 @@ typedef enum RCC_CR_FLAGS_Enumeration
 */
 typedef enum RCC_CR_HSICAL_Masks_Enumeration
 {
-    RCC_CR_HSICAL_MASK      = 0xFFu, // Internal high-speed clock calibration [8 bits, r]
-    RCC_CR_HSICAL_SHIFT_AMT = 8u,    // position of HSICAL in RCC CR
+    RCC_CR_HSICAL_MASK      = EIGHT_BIT_MASK, // Internal high-speed clock calibration [8 bits, r]
+    RCC_CR_HSICAL_SHIFT_AMT = 8u,             // position of HSICAL in RCC CR
 } RCC_CR_HSICAL_Masks_enum;
 
 /*
@@ -96,8 +97,8 @@ typedef enum RCC_CR_HSICAL_Masks_Enumeration
 */
 typedef enum RCC_CR_HSITRIM_Masks_Enumeration
 {
-    RCC_CR_HSITRIM_MASK      = 0x1Fu, // Internal high-speed clock trimming [5 bits, rw]
-    RCC_CR_HSITRIM_SHIFT_AMT = 3u,    // position of HSITRIM in RCC CR
+    RCC_CR_HSITRIM_MASK      = FIVE_BIT_MASK, // Internal high-speed clock trimming [5 bits, rw]
+    RCC_CR_HSITRIM_SHIFT_AMT = 3u,            // position of HSITRIM in RCC CR
 } RCC_CR_HSITRIM_Masks_enum;
 
 
@@ -140,7 +141,7 @@ typedef enum RCC_CFGR_PLLMUL_MASKS_Enumeration
     RCC_CFGR_PLLMUL_X_8         = 0b0110u, // PLL input clock x 8
     RCC_CFGR_PLLMUL_X_9         = 0b0111u, // PLL input clock x 9
     RCC_CFGR_PLLMUL_X_6_POINT_5 = 0b1101u, // PLL input clock x 6.5
-    RCC_CFGR_PLLMUL_SHIFT_AMT   = 18u // position of PLLMUL in RCC CFGR
+    RCC_CFGR_PLLMUL_SHIFT_AMT   = 18u      // position of PLLMUL in RCC CFGR
 } RCC_CFGR_PLLMUL_MASKS_enum;
 
 /*
