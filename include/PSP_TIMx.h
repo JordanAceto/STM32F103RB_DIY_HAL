@@ -595,6 +595,22 @@ typedef enum TIMx_CCMR2_IC3PSC_MASKS_Enumeration
 } TIMx_CCMR2_IC3PSC_MASKS_enum;
 
 /*
+--| NAME: TIMx_CCER_FLAGS_enum
+--| DESCRIPTION: TIMx capture/compare enable register flags
+*/
+typedef enum TIMx_CCER_FLAGS_Enumeration
+{
+    TIMx_CCER_CC4P_FLAG = (1u << 13u), // Capture/Compare 4 output polarity [rw]
+    TIMx_CCER_CC4E_FLAG = (1u << 12u), // Capture/Compare 4 output enable [rw]
+    TIMx_CCER_CC3P_FLAG = (1u << 9u),  // Capture/Compare 3 output polarity [rw]
+    TIMx_CCER_CC3E_FLAG = (1u << 8u),  // Capture/Compare 3 output enable [rw]
+    TIMx_CCER_CC2P_FLAG = (1u << 5u),  // Capture/Compare 2 output polarity [rw]
+    TIMx_CCER_CC2E_FLAG = (1u << 4u),  // Capture/Compare 2 output enable [rw]
+    TIMx_CCER_CC1P_FLAG = (1u << 1u),  // Capture/Compare 1 output polarity [rw]
+    TIMx_CCER_CC1E_FLAG = (1u << 0u),  // Capture/Compare 1 output enable [rw]
+} TIMx_CCER_FLAGS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
