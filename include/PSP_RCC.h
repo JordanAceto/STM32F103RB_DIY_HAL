@@ -373,6 +373,32 @@ typedef enum RCC_APB1ENR_FLAGS_Enumeration
 } RCC_APB1ENR_FLAGS_enum;
 
 /*
+--| NAME: RCC_BDCR_FLAGS_enum
+--| DESCRIPTION: RCC APB1 Backup domain control register flags
+*/
+typedef enum RCC_BDCR_FLAGS_Enumeration
+{
+    RCC_BDCR_BDRST_FLAG  = (1u << 16u), // Backup domain software reset [rw]
+    RCC_BDCR_RTCEN_FLAG  = (1u << 15u), // RTC clock enable [rw]
+    RCC_BDCR_LSEBYP_FLAG = (1u << 2u),  // External Low Speed oscillator bypass [rw]
+    RCC_BDCR_LSERDY_FLAG = (1u << 1u),  // External Low Speed oscillator ready [r]
+    RCC_BDCR_LSEON_FLAG  = (1u << 0u),  // External Low Speed oscillator enablee [rw]
+} RCC_BDCR_FLAGS_enum;
+
+/*
+--| NAME: RCC_BDCR_RTCSEL_MASKS_enum
+--| DESCRIPTION: RCC APB1 BDCR RTC clock source selection masks [2 bits, rw]
+*/
+typedef enum RCC_BDCR_RTCSEL_MASKS_Enumeration
+{
+    RCC_BDCR_RTCSEL_NO_CLOCK           = 0b00u, // No clock
+    RCC_BDCR_RTCSEL_LSE_AS_RTC         = 0b01u, // LSE oscillator clock used as RTC clock
+    RCC_BDCR_RTCSEL_LSI_AS_RTC         = 0b10u, // LSI oscillator clock used as RTC clock
+    RCC_BDCR_RTCSEL_HSE_DIV_128_AS_RTC = 0b11u, // HSE oscillator clock divided by 128 used as RTC clock
+    RCC_BDCR_RTCSEL_SHIFT_AMT          = 0u,    // Position of RTCSEL in RCC BDCR
+} RCC_BDCR_RTCSEL_MASKS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
