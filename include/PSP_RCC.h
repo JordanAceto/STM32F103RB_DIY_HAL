@@ -395,7 +395,7 @@ typedef enum RCC_BDCR_RTCSEL_MASKS_Enumeration
     RCC_BDCR_RTCSEL_LSE_AS_RTC         = 0b01u, // LSE oscillator clock used as RTC clock
     RCC_BDCR_RTCSEL_LSI_AS_RTC         = 0b10u, // LSI oscillator clock used as RTC clock
     RCC_BDCR_RTCSEL_HSE_DIV_128_AS_RTC = 0b11u, // HSE oscillator clock divided by 128 used as RTC clock
-    RCC_BDCR_RTCSEL_SHIFT_AMT          = 0u,    // Position of RTCSEL in RCC BDCR
+    RCC_BDCR_RTCSEL_SHIFT_AMT          = 8u,    // Position of RTCSEL in RCC BDCR
 } RCC_BDCR_RTCSEL_MASKS_enum;
 
 /*
