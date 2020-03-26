@@ -394,6 +394,19 @@ typedef enum TIMx_CCMR1_IC2F_MASKS_Enumeration
 } TIMx_CCMR1_IC2F_MASKS_enum;
 
 /*
+--| NAME: TIMx_CCMR1_IC2PSC_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Input capture 2 prescaler [2 bits, rw]
+*/
+typedef enum TIMx_CCMR1_IC2PSC_MASKS_Enumeration
+{
+    TIMx_CCMR1_IC2PSC_NO_PRESCALER           = 0b00u, // no prescaler
+    TIMx_CCMR1_IC2PSC_CAPTURE_EVERY_2_EVENTS = 0b01u, // capture is done once every 2 events
+    TIMx_CCMR1_IC2PSC_CAPTURE_EVERY_4_EVENTS = 0b10u, // capture is done once every 4 events
+    TIMx_CCMR1_IC2PSC_CAPTURE_EVERY_8_EVENTS = 0b11u, // capture is done once every 8 events
+    TIMx_CCMR1_IC2PSC_SHIFT_AMT              = 10u    // position of IC2PSC in TIMx CCMR1
+} TIMx_CCMR1_IC2PSC_MASKS_enum;
+
+/*
 --| NAME: TIMx_CCMR1_IC1F_MASKS_enum
 --| DESCRIPTION: TIMx CCMR1 Input capture 1 filter [4 bits, rw]
 */
@@ -417,6 +430,19 @@ typedef enum TIMx_CCMR1_IC1F_MASKS_Enumeration
     TIMx_CCMR1_IC1F_FILTER_MODE_15 = 0b1111u, // f SAMPLING =f DTS /32, N=8
     TIMx_CCMR1_IC1F_SHIFT_AMT      = 4u,      // position of IC1F in TIMx CCMR1
 } TIMx_CCMR1_IC1F_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR1_IC1PSC_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Input capture 1 prescaler [2 bits, rw]
+*/
+typedef enum TIMx_CCMR1_IC1PSC_MASKS_Enumeration
+{
+    TIMx_CCMR1_IC1PSC_NO_PRESCALER           = 0b00u, // no prescaler
+    TIMx_CCMR1_IC1PSC_CAPTURE_EVERY_2_EVENTS = 0b01u, // capture is done once every 2 events
+    TIMx_CCMR1_IC1PSC_CAPTURE_EVERY_4_EVENTS = 0b10u, // capture is done once every 4 events
+    TIMx_CCMR1_IC1PSC_CAPTURE_EVERY_8_EVENTS = 0b11u, // capture is done once every 8 events
+    TIMx_CCMR1_IC1PSC_SHIFT_AMT              = 10u    // position of IC1PSC in TIMx CCMR1
+} TIMx_CCMR1_IC1PSC_MASKS_enum;
 
 /*
 --|----------------------------------------------------------------------------|
