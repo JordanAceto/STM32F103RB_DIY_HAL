@@ -295,6 +295,20 @@ typedef enum TIMx_EGR_FLAGS_Enumeration
 } TIMx_EGR_FLAGS_enum;
 
 /*
+--| NAME: TIMx_CCMR1_FLAGS_enum
+--| DESCRIPTION: TIMx capture/compare mode register 1 flags
+*/
+typedef enum TIMx_CCMR1_FLAGS_Enumeration
+{
+    TIMx_CCMR1_OC2CE_FLAG = (1u << 15u), // Output compare 2 clear enable [rw]
+    TIMx_CCMR1_OC2PE_FLAG = (1u << 11u), // Output compare 2 preload enable [rw]
+    TIMx_CCMR1_OC2FE_FLAG = (1u << 10u), // Output compare 2 fast enable [rw]
+    TIMx_CCMR1_OC1CE_FLAG = (1u << 7u),  // Output compare 1 clear enable [rw]
+    TIMx_CCMR1_OC1PE_FLAG = (1u << 3u),  // Output compare 1 preload enable [rw]
+    TIMx_CCMR1_OC1FE_FLAG = (1u << 2u),  // Output compare 1 fast enable [rw]
+} TIMx_CCMR1_FLAGS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
