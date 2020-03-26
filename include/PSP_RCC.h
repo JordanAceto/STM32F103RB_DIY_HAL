@@ -344,6 +344,33 @@ typedef enum RCC_APB2ENR_FLAGS_Enumeration
     RCC_APB2ENR_AFIOEN_FLAG   = (1u << 0u),  // Alternate function I/O clock enable [rw]
 } RCC_APB2ENR_FLAGS_enum;
 
+/*
+--| NAME: RCC_APB1ENR_FLAGS_enum
+--| DESCRIPTION: RCC APB1 peripheral clock enable register flags
+*/
+typedef enum RCC_APB1ENR_FLAGS_Enumeration
+{
+    RCC_APB1ENR_DACEN_FLAG   = (1u << 29u), // DAC interface clock enable [rw]
+    RCC_APB1ENR_PWREN_FLAG   = (1u << 28u), // Power interface clock enable [rw]
+    RCC_APB1ENR_BKPEN_FLAG   = (1u << 27u), // Backup interface clock enable [rw]
+    RCC_APB1ENR_CAN2EN_FLAG  = (1u << 26u), // CAN2 clock enable [rw]
+    RCC_APB1ENR_CAN1EN_FLAG  = (1u << 25u), // CAN1 clock enable [rw]
+    RCC_APB1ENR_I2C2EN_FLAG  = (1u << 22u), // I2C 2 clock enable [rw]
+    RCC_APB1ENR_I2C1EN_FLAG  = (1u << 21u), // I2C 1 clock enable [rw]
+    RCC_APB1ENR_UART5EN_FLAG = (1u << 20u), // USART 5 clock enable [rw]
+    RCC_APB1ENR_UART4EN_FLAG = (1u << 19u), // USART 4 clock enable [rw]
+    RCC_APB1ENR_UART3EN_FLAG = (1u << 18u), // USART 3 clock enable [rw]
+    RCC_APB1ENR_UART2EN_FLAG = (1u << 17u), // USART 2 clock enable [rw]
+    RCC_APB1ENR_SPI3EN_FLAG  = (1u << 15u), // SPI 3 clock enable [rw]
+    RCC_APB1ENR_SPI2EN_FLAG  = (1u << 14u), // SPI 2 clock enable [rw]
+    RCC_APB1ENR_WWDGEN_FLAG  = (1u << 11u), // Window watchdog clock enable [rw]
+    RCC_APB1ENR_TIM7ENN_FLAG = (1u << 5u),  // Timer 7 clock enable [rw]
+    RCC_APB1ENR_TIM6ENN_FLAG = (1u << 4u),  // Timer 6 clock enable [rw]
+    RCC_APB1ENR_TIM5ENN_FLAG = (1u << 3u),  // Timer 5 clock enable [rw]
+    RCC_APB1ENR_TIM4ENN_FLAG = (1u << 2u),  // Timer 4 clock enable [rw]
+    RCC_APB1ENR_TIM3ENN_FLAG = (1u << 1u),  // Timer 3 clock enable [rw]
+    RCC_APB1ENR_TIM2ENN_FLAG = (1u << 0u),  // Timer 2 clock enable [rw]
+} RCC_APB1ENR_FLAGS_enum;
 
 /*
 --|----------------------------------------------------------------------------|
