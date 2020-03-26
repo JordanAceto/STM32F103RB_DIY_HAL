@@ -326,6 +326,19 @@ typedef enum TIMx_CCMR1_OC2M_MASKS_Enumeration
 } TIMx_CCMR1_OC2M_MASKS_enum;
 
 /*
+--| NAME: TIMx_CCMR1_CC2S_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Capture/Compare 2 selection masks [2 bits, rw]
+*/
+typedef enum TIMx_CCMR1_CC2S_MASKS_Enumeration
+{
+    TIMx_CCMR1_CC2S_OUTPUT        = 0b00u, // CC2 channel is configured as output
+    TIMx_CCMR1_CC2S_INPUT_MAP_TI2 = 0b01u, // CC2 channel is configured as input, IC2 is mapped on TI2
+    TIMx_CCMR1_CC2S_INPUT_MAP_TI1 = 0b10u, // CC2 channel is configured as input, IC2 is mapped on TI1
+    TIMx_CCMR1_CC2S_INPUT_MAP_TRC = 0b11u, // CC2 channel is configured as input, IC2 is mapped on TRC
+    TIMx_CCMR1_CC2S_SHIFT_AMT     = 8u,    // position of CC2S in TIMx CCMR1
+} TIMx_CCMR1_CC2S_MASKS_enum;
+
+/*
 --| NAME: TIMx_CCMR1_OC1M_MASKS_enum
 --| DESCRIPTION: TIMx CCMR1 Output compare 1 mode masks [3 bits, rw]
 */
@@ -341,6 +354,19 @@ typedef enum TIMx_CCMR1_OC1M_MASKS_Enumeration
     TIMx_CCMR1_OC1M_PWM_MODE_2              = 0b111u, // PWM mode 2
     TIMx_CCMR1_OC1M_SHIFT_AMT               = 4u,     // position of OC1M in TIMx CCMR1
 } TIMx_CCMR1_OC1M_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR1_CC1S_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Capture/Compare 1 selection masks [2 bits, rw]
+*/
+typedef enum TIMx_CCMR1_CC1S_MASKS_Enumeration
+{
+    TIMx_CCMR1_CC1S_OUTPUT        = 0b00u, // CC1 channel is configured as output
+    TIMx_CCMR1_CC1S_INPUT_MAP_TI1 = 0b01u, // CC1 channel is configured as input, IC1 is mapped on TI1
+    TIMx_CCMR1_CC1S_INPUT_MAP_TI2 = 0b10u, // CC1 channel is configured as input, IC1 is mapped on TI2
+    TIMx_CCMR1_CC1S_INPUT_MAP_TRC = 0b11u, // CC1 channel is configured as input, IC1 is mapped on TRC
+    TIMx_CCMR1_CC1S_SHIFT_AMT     = 0u,    // position of CC1S in TIMx CCMR1
+} TIMx_CCMR1_CC1S_MASKS_enum;
 
 /*
 --|----------------------------------------------------------------------------|
