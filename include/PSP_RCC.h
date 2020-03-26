@@ -417,6 +417,16 @@ typedef enum RCC_CSR_FLAGS_Enumeration
 } RCC_CSR_FLAGS_enum;
 
 /*
+--| NAME: RCC_AHBRSTR_FLAGS_enum
+--| DESCRIPTION: RCC AHB peripheral clock reset register flags
+*/
+typedef enum RCC_AHBRSTR_FLAGS_Enumeration
+{
+    RCC_AHBRSTR_ETHMACRST_FLAG = (1u << 14u), // Ethernet MAC reset [rw]
+    RCC_AHBRSTR_OTGFSRST_FLAG  = (1u << 12u), // USB OTG FS reset [rw]
+} RCC_AHBRSTR_FLAGS_enum;
+
+/*
 --|----------------------------------------------------------------------------|
 --| PUBLIC CONSTANTS
 --|----------------------------------------------------------------------------|
