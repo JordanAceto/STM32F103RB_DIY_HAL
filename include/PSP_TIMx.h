@@ -185,7 +185,7 @@ typedef enum TIMx_SMCR_ETPS_MASKS_Enumeration
 
 /*
 --| NAME: TIMx_SCMR_ETF_MASKS_enum
---| DESCRIPTION: TIMx SMCR External trigger prescaler masks [2 bits, rw]
+--| DESCRIPTION: TIMx SMCR External trigger prescaler masks [4 bits, rw]
 */
 typedef enum TIMx_SMCR_ETF_MASKS_Enumeration
 {
@@ -367,6 +367,56 @@ typedef enum TIMx_CCMR1_CC1S_MASKS_Enumeration
     TIMx_CCMR1_CC1S_INPUT_MAP_TRC = 0b11u, // CC1 channel is configured as input, IC1 is mapped on TRC
     TIMx_CCMR1_CC1S_SHIFT_AMT     = 0u,    // position of CC1S in TIMx CCMR1
 } TIMx_CCMR1_CC1S_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR1_IC2F_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Input capture 2 filter [4 bits, rw]
+*/
+typedef enum TIMx_CCMR1_IC2F_MASKS_Enumeration
+{
+    TIMx_CCMR1_IC2F_NO_FILTER      = 0b0000u, // Prescaler OFF
+    TIMx_CCMR1_IC2F_FILTER_MODE_1  = 0b0001u, // f SAMPLING =f CK_INT , N=2
+    TIMx_CCMR1_IC2F_FILTER_MODE_2  = 0b0010u, // f SAMPLING =f CK_INT , N=4
+    TIMx_CCMR1_IC2F_FILTER_MODE_3  = 0b0011u, // f SAMPLING =f CK_INT , N=8^2
+    TIMx_CCMR1_IC2F_FILTER_MODE_4  = 0b0100u, // f SAMPLING =f DTS /2, N=6
+    TIMx_CCMR1_IC2F_FILTER_MODE_5  = 0b0101u, // f SAMPLING =f DTS /2, N=8
+    TIMx_CCMR1_IC2F_FILTER_MODE_6  = 0b0110u, // f SAMPLING =f DTS /4, N=6^2
+    TIMx_CCMR1_IC2F_FILTER_MODE_7  = 0b0111u, // f SAMPLING =f DTS /4, N=8
+    TIMx_CCMR1_IC2F_FILTER_MODE_8  = 0b1000u, // f SAMPLING =f DTS /8, N=6
+    TIMx_CCMR1_IC2F_FILTER_MODE_9  = 0b1001u, // f SAMPLING =f DTS /8, N=8
+    TIMx_CCMR1_IC2F_FILTER_MODE_10 = 0b1010u, // f SAMPLING =f DTS /16, N=5
+    TIMx_CCMR1_IC2F_FILTER_MODE_11 = 0b1011u, // f SAMPLING =f DTS /16, N=6
+    TIMx_CCMR1_IC2F_FILTER_MODE_12 = 0b1100u, // f SAMPLING =f DTS /16, N=8
+    TIMx_CCMR1_IC2F_FILTER_MODE_13 = 0b1101u, // f SAMPLING =f DTS /32, N=5
+    TIMx_CCMR1_IC2F_FILTER_MODE_14 = 0b1110u, // f SAMPLING =f DTS /32, N=6
+    TIMx_CCMR1_IC2F_FILTER_MODE_15 = 0b1111u, // f SAMPLING =f DTS /32, N=8
+    TIMx_CCMR1_IC2F_SHIFT_AMT      = 12u,     // position of IC2F in TIMx CCMR1
+} TIMx_CCMR1_IC2F_MASKS_enum;
+
+/*
+--| NAME: TIMx_CCMR1_IC1F_MASKS_enum
+--| DESCRIPTION: TIMx CCMR1 Input capture 1 filter [4 bits, rw]
+*/
+typedef enum TIMx_CCMR1_IC1F_MASKS_Enumeration
+{
+    TIMx_CCMR1_IC1F_NO_FILTER      = 0b0000u, // Prescaler OFF
+    TIMx_CCMR1_IC1F_FILTER_MODE_1  = 0b0001u, // f SAMPLING =f CK_INT , N=2
+    TIMx_CCMR1_IC1F_FILTER_MODE_2  = 0b0010u, // f SAMPLING =f CK_INT , N=4
+    TIMx_CCMR1_IC1F_FILTER_MODE_3  = 0b0011u, // f SAMPLING =f CK_INT , N=8^2
+    TIMx_CCMR1_IC1F_FILTER_MODE_4  = 0b0100u, // f SAMPLING =f DTS /2, N=6
+    TIMx_CCMR1_IC1F_FILTER_MODE_5  = 0b0101u, // f SAMPLING =f DTS /2, N=8
+    TIMx_CCMR1_IC1F_FILTER_MODE_6  = 0b0110u, // f SAMPLING =f DTS /4, N=6^2
+    TIMx_CCMR1_IC1F_FILTER_MODE_7  = 0b0111u, // f SAMPLING =f DTS /4, N=8
+    TIMx_CCMR1_IC1F_FILTER_MODE_8  = 0b1000u, // f SAMPLING =f DTS /8, N=6
+    TIMx_CCMR1_IC1F_FILTER_MODE_9  = 0b1001u, // f SAMPLING =f DTS /8, N=8
+    TIMx_CCMR1_IC1F_FILTER_MODE_10 = 0b1010u, // f SAMPLING =f DTS /16, N=5
+    TIMx_CCMR1_IC1F_FILTER_MODE_11 = 0b1011u, // f SAMPLING =f DTS /16, N=6
+    TIMx_CCMR1_IC1F_FILTER_MODE_12 = 0b1100u, // f SAMPLING =f DTS /16, N=8
+    TIMx_CCMR1_IC1F_FILTER_MODE_13 = 0b1101u, // f SAMPLING =f DTS /32, N=5
+    TIMx_CCMR1_IC1F_FILTER_MODE_14 = 0b1110u, // f SAMPLING =f DTS /32, N=6
+    TIMx_CCMR1_IC1F_FILTER_MODE_15 = 0b1111u, // f SAMPLING =f DTS /32, N=8
+    TIMx_CCMR1_IC1F_SHIFT_AMT      = 4u,      // position of IC1F in TIMx CCMR1
+} TIMx_CCMR1_IC1F_MASKS_enum;
 
 /*
 --|----------------------------------------------------------------------------|
