@@ -19,9 +19,9 @@
 --|----------------------------------------------------------------------------|
 */
 
+#include "Common_Masks.h"
 #include "Common_Typedefs.h"
 #include "PSP_Peripherals_Memory_Map.h"
-#include <stdint.h>
 
 /*
 --|----------------------------------------------------------------------------|
@@ -609,6 +609,26 @@ typedef enum TIMx_CCER_FLAGS_Enumeration
     TIMx_CCER_CC1P_FLAG = (1u << 1u),  // Capture/Compare 1 output polarity [rw]
     TIMx_CCER_CC1E_FLAG = (1u << 0u),  // Capture/Compare 1 output enable [rw]
 } TIMx_CCER_FLAGS_enum;
+
+/*
+--| NAME: TIMx_DCR_DBL_MASKS_enum
+--| DESCRIPTION: TIMx DMA control register DMA burst length masks [5 bits, rw]
+*/
+typedef enum TIMx_DCR_DBL_MASKS_MASKS_Enumeration
+{
+    TIMx_DCR_DBL_MASK      = FIVE_BIT_MASK, // 5-bit vector defines the number of DMA transfers
+    TIMx_DCR_DBL_SHIFT_AMT = 8u             // position of DBL in TIMx DCR
+} TIMx_DCR_DBL_MASKS_enum;
+
+/*
+--| NAME: TIMx_DCR_DBA_MASKS_enum
+--| DESCRIPTION: TIMx DMA control register DMA base address masks [5 bits, rw]
+*/
+typedef enum TIMx_DCR_DBA_MASKS_MASKS_Enumeration
+{
+    TIMx_DCR_DBA_MASK      = FIVE_BIT_MASK, // 5-bit vector defines the base-address for DMA transfers
+    TIMx_DCR_DBA_SHIFT_AMT = 0u             // position of DBA in TIMx DCR
+} TIMx_DCR_DBA_MASKS_enum;
 
 /*
 --|----------------------------------------------------------------------------|
