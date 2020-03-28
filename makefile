@@ -37,20 +37,26 @@ OBJ_COPY_FLAGS += -S
 OBJ_COPY_FLAGS += -O 
 OBJ_COPY_FLAGS += binary
 
-SRC_DIR  = ./src/
-INC_DIR  = ./include/
-BIN_DIR  = ./bin/
-TEST_DIR = ./test/
-TEST_LIB_DIR = $(TEST_DIR)c_test_lib/
+SRC_DIR      = ./src/
+INC_DIR      = ./include/
+EXAMPLES_DIR = ./examples/
+BIN_DIR      = ./bin/
 
 TARGET = $(BIN_DIR)main
 
 C_OBJECT_FILES := $(patsubst $(SRC_DIR)%.c,$(BIN_DIR)%.o,$(wildcard $(SRC_DIR)*.c))
+C_OBJECT_FILES += $(BIN_DIR)main.o
 
 ASM_OBJECT_FILES := $(patsubst $(SRC_DIR)%.S,$(BIN_DIR)%.o,$(wildcard $(SRC_DIR)*.S))
 
 .PHONY: all
 all: $(TARGET).bin
+
+# target for the simple_blink example application
+.PHONY: simple_blink
+simple_blink:
+	$(COMPILER) $(C_FLAGS) $(EXAMPLES_DIR)simple_blink.c -o $(TARGET).o
+	make $(TARGET).bin
 
 # compile the user provided application c source files
 $(BIN_DIR)%.o: $(SRC_DIR)%.c
@@ -83,3 +89,4 @@ clean:
 	rm -f $(BIN_DIR)*.out
 	rm -f $(BIN_DIR)*.elf
 	rm -f $(BIN_DIR)*.bin
+	rm -f $(BIN_DIR)*.list
