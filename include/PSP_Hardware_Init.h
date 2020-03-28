@@ -71,8 +71,7 @@ Function Name:
 Function Description:
     Initialize the hardware. 
 
-    Sets the system timer to internal high speed oscillator with PLL 
-    multiplication to achieve a speed of 48MHz.
+    Sets the system timer to the SYSTEM_CLOCK_SPEED.
 
     Sets up the SysTick timer to count ticks in milliseconds.
 
