@@ -127,8 +127,8 @@ typedef enum TIMx_CR1_CMS_MASKS_Enumeration
 {
     TIMx_CR1_CMS_EDGE_ALIGNED_MODE     = 0b00u, // Edge-aligned mode
     TIMx_CR1_CMS_CENTER_ALIGNED_MODE_1 = 0b01u, // Center-aligned mode 1
-    TIMx_CR1_CMS_CENTER_ALIGNED_MODE_1 = 0b10u, // Center-aligned mode 2
-    TIMx_CR1_CMS_CENTER_ALIGNED_MODE_1 = 0b11u, // Center-aligned mode 3
+    TIMx_CR1_CMS_CENTER_ALIGNED_MODE_2 = 0b10u, // Center-aligned mode 2
+    TIMx_CR1_CMS_CENTER_ALIGNED_MODE_3 = 0b11u, // Center-aligned mode 3
     TIMx_CR1_CMS_SHIFT_AMT             = 5u,    // position of CMS in TIMx CR1
 } TIMx_CR1_CMS_MASKS_enum;
 
