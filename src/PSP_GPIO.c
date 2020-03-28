@@ -99,8 +99,6 @@ void PSP_GPIO_Set_Pin_Mode(GPIO_Pin_t * p_GPIO_pin,
     }
 }
 
-
-
 void PSP_GPIO_Write_Pin(GPIO_Pin_t * p_GPIO_pin,
                         GPIO_Pin_Output_Write_enum pin_direction)
 {
@@ -113,8 +111,6 @@ void PSP_GPIO_Write_Pin(GPIO_Pin_t * p_GPIO_pin,
         p_GPIO_pin->port->BSRR = (1u << p_GPIO_pin->number);
     }
 }
-
-
 
 void PSP_GPIO_Toggle_Pin(GPIO_Pin_t * p_GPIO_pin)
 {
