@@ -52,7 +52,7 @@
 /*
 --| NAME: mSec_since_reset 
 --| DESCRIPTION: the number of milliseconds since the last power on/reset.
---| TYPE: uint64_t
+--| TYPE: uint32_t
 */
 static volatile uint32_t mSec_since_reset = 0u;
 
@@ -97,7 +97,7 @@ void SysTick_Delay_mSec(uint32_t mSec)
     }
 }
 
-uint64_t SysTick_Get_mSec(void)
+uint32_t SysTick_Get_mSec(void)
 {
     return mSec_since_reset;
 }

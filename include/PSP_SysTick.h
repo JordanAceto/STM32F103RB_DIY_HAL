@@ -127,12 +127,12 @@ Parameters:
     None
 
 Returns:
-    uint64_t: the number of milliseconds since reset.
+    uint32_t: the number of milliseconds since reset.
 
 Assumptions/Limitations:
     None
 ------------------------------------------------------------------------------*/
-uint64_t SysTick_Get_mSec(void);
+uint32_t SysTick_Get_mSec(void);
 
 /*------------------------------------------------------------------------------
 Function Name:
