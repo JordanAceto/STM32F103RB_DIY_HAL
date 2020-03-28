@@ -11,11 +11,11 @@
 
 #### To build and flash an example application:
 - look in the examples directory and choose an example application to demo.
-- $ make [name of the example application without the extension]
+- $ make demo TARGET=[name of the example application without the extension]
 - $ make write
 
 #### For instance, to build the 'simple_blink.c' example:
-- $ make simple_blink
+- $ make demo TARGET=simple_blink
 
 #### To clean the bin directory:
 - $ make clean
