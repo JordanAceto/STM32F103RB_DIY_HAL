@@ -50,8 +50,9 @@ C_OBJECT_FILES := $(patsubst $(SRC_DIR)%.c,$(BIN_DIR)%.o,$(wildcard $(SRC_DIR)*.
 
 ASM_OBJECT_FILES := $(patsubst $(SRC_DIR)%.S,$(BIN_DIR)%.o,$(wildcard $(SRC_DIR)*.S))
 
+# all makes the default demo application
 .PHONY: all
-all: $(TARGET).bin
+all: demo
 
 # compile the demo target, then build the rest as normal
 .PHONY: demo
