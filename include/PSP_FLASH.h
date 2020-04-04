@@ -61,17 +61,6 @@ typedef enum FLASH_ACR_FLAGS_Enumeration
 } FLASH_ACR_FLAGS_enum;
 
 /*
---| NAME: FLASH_ACR_PRFTBS_enum
---| DESCRIPTION: FLASH ARC Prefetch buffer status [1 bit, r]
-*/
-typedef enum FLASH_ACR_PRFTBS_Enumeration
-{
-    FLASH_ACR_PRFTBS_DISABLED  = 0u, // Prefetch buffer is disabled
-    FLASH_ACR_PRFTBS_ENABLED   = 1u, // Prefetch buffer is enabled
-    FLASH_ACR_PRFTBS_SHIFT_AMT = 5u, // position of PRFTBS in FLASH ACR
-} FLASH_ACR_PRFTBS_enum;
-
-/*
 --| NAME: FLASH_ACR_Latency_enum
 --| DESCRIPTION: Flash ACR latency configuration [3 bits, rw]
 */
