@@ -196,7 +196,7 @@ Returns:
     None
 
 Assumptions/Limitations:
-    Assumes that the pin number and pin mode are valid. If either is invalied,
+    Assumes that the pin number and pin mode are valid. If either is invalid,
     the result is undefined.
 ------------------------------------------------------------------------------*/
 void PSP_GPIO_Set_Pin_Mode(GPIO_Pin_t * p_GPIO_pin, 
@@ -217,7 +217,7 @@ Returns:
     None
 
 Assumptions/Limitations:
-    Assumes that the pin number and pin mode are valid. If either is invalied,
+    Assumes that the pin number and pin mode are valid. If either is invalid,
     the result is undefined.
 
     Assumes that the pin in question is set to output mode.
@@ -240,7 +240,7 @@ Returns:
     None
 
 Assumptions/Limitations:
-    Assumes that the pin number is valid. If it is invalied, the result 
+    Assumes that the pin number is valid. If it is invalid, the result 
     is undefined.
 
     Assumes that the pin in question is set to output mode.
@@ -262,7 +262,7 @@ Returns:
         low, else GPIO_PIN_INPUT_READ_HIGH.
 
 Assumptions/Limitations:
-    Assumes that the pin number and pin mode are valid. If either is invalied,
+    Assumes that the pin number and pin mode are valid. If either is invalid,
     the result is undefined.
 ------------------------------------------------------------------------------*/
 GPIO_Pin_Input_Read_enum PSP_GPIO_Read_Pin(GPIO_Pin_t * p_GPIO_pin);
