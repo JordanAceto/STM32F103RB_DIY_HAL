@@ -102,22 +102,27 @@ uint32_t SysTick_Get_mSec(void)
     return mSec_since_reset;
 }
 
-void SysTick_Initialize_Periodic_Timer(SysTick_Periodic_Timer_t * p_timer)
+void SysTick_Start_Timeout_Timer(SysTick_Timeout_Timer_t * p_timer)
 {
-    p_timer->last_timeout_time_mSec = SysTick_Get_mSec();
+    p_timer->timeout_start_mSec = SysTick_Get_mSec();
 }
 
-bool SysTick_Periodic_Timer_Timeout_Occured(SysTick_Periodic_Timer_t * p_timer)
+bool SysTick_Poll_One_Shot_Timer(SysTick_Timeout_Timer_t * p_timer)
 {
-    bool retval = false;
+    return (SysTick_Get_mSec() - p_timer->timeout_start_mSec) > p_timer->timeout_period_mSec;
+}
 
-    if ((SysTick_Get_mSec() - p_timer->last_timeout_time_mSec) > p_timer->timeout_period_mSec) 
+bool SysTick_Poll_Periodic_Timer(SysTick_Timeout_Timer_t * p_timer)
+{
+    bool timeout_occured = SysTick_Poll_One_Shot_Timer(p_timer);
+
+    if (timeout_occured) 
     {
-        p_timer->last_timeout_time_mSec = SysTick_Get_mSec();
-        retval = true;
+        // reset the timer
+        p_timer->timeout_start_mSec = SysTick_Get_mSec();
     }
 
-    return retval;
+    return timeout_occured;
 }
 
 /*

@@ -79,10 +79,10 @@
 
 /*
 --| NAME: periodic_timer
---| DESCRIPTION: periodic timer structure for scheduling the LED blink
---| TYPE: SysTick_Periodic_Timer_t
+--| DESCRIPTION: periodic timeout timer structure for scheduling the LED blink
+--| TYPE: SysTick_Timeout_Timer_t
 */
-SysTick_Periodic_Timer_t periodic_timer;
+SysTick_Timeout_Timer_t periodic_timer;
 
 /*
 --| NAME: LED_pin
@@ -127,7 +127,7 @@ int main(void)
 
     periodic_timer.timeout_period_mSec = LED_BLINK_TIME_mSec;
 
-    SysTick_Initialize_Periodic_Timer(&periodic_timer);
+    SysTick_Start_Timeout_Timer(&periodic_timer);
 
     LED_pin.number = LED_PIN_NUMBER;
     LED_pin.port = LED_GPIO_PORT;
@@ -137,7 +137,7 @@ int main(void)
 
     while (1)
     {
-        if (SysTick_Periodic_Timer_Timeout_Occured(&periodic_timer))
+        if (SysTick_Poll_Periodic_Timer(&periodic_timer))
 		{
 			PSP_GPIO_Toggle_Pin(&LED_pin);
 		}

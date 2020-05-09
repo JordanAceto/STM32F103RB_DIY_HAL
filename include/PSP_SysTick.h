@@ -67,14 +67,14 @@ typedef enum SysTick_CTRL_FLAGS_Enumeration
 } SysTick_CTRL_FLAGS_enum;
 
 /*
---| NAME: SysTick_Periodic_Timer_t
---| DESCRIPTION: structure for periodic timer storage
+--| NAME: SysTick_Timeout_Timer_t
+--| DESCRIPTION: structure for timeout timer storage
 */
-typedef struct SysTick_Periodic_Timer_Type
+typedef struct SysTick_Timeout_Timer_Type
 {
-    uint32_t timeout_period_mSec;    // the period of the timeout in mSec
-    uint32_t last_timeout_time_mSec; // the time in mSec when the last timeout occured
-} SysTick_Periodic_Timer_t;
+    uint32_t timeout_period_mSec; // the period of the timeout in mSec
+    uint32_t timeout_start_mSec;  // the time in mSec when the timer was started
+} SysTick_Timeout_Timer_t;
 
 /*
 --|----------------------------------------------------------------------------|
@@ -136,42 +136,61 @@ uint32_t SysTick_Get_mSec(void);
 
 /*------------------------------------------------------------------------------
 Function Name:
-    SysTick_Initialize_Periodic_Timer
+    SysTick_Start_Timeout_Timer
 
 Function Description:
-    Initialize a periodic timer before using.
+    Start a timeout timeout timer before using.
 
 Parameters:
-    p_timer: pointer to the periodic timer.
+    p_timer: pointer to the timeout timer.
 
 Returns:
     None
 
 Assumptions/Limitations:
-    Assumes that the given periodic timer has a valid timeout period.
+    Assumes that the given timeout timer has a valid timeout period.
 ------------------------------------------------------------------------------*/
-void SysTick_Initialize_Periodic_Timer(SysTick_Periodic_Timer_t * p_timer);
+void SysTick_Start_Timeout_Timer(SysTick_Timeout_Timer_t * p_timer);
 
 /*------------------------------------------------------------------------------
 Function Name:
-    SysTick_Periodic_Timer_Timeout_Occured
+    SysTick_Poll_One_Shot_Timer
 
 Function Description:
-    Poll a given periodic timer and return true if a timeout has occured, 
-    otherwise return false.
-
-    If a timeout has occured, the last timeout time in the given periodic 
-    timer is set to the time now.
+    Poll a given one-shot timeout timer and return true if a timeout has 
+    occured, otherwise return false.
 
 Parameters:
-    p_timer: pointer to the periodic timer.
+    p_timer: pointer to the timeout timer.
 
 Returns:
     true if a timeout occured, else false.
 
 Assumptions/Limitations:
-    Assumes that the data in the given periodic timer is sensible.
+    Assumes that the data in the given timeout timer is sensible.
 ------------------------------------------------------------------------------*/
-bool SysTick_Periodic_Timer_Timeout_Occured(SysTick_Periodic_Timer_t * p_timer);
+bool SysTick_Poll_One_Shot_Timer(SysTick_Timeout_Timer_t * p_timer);
+
+/*------------------------------------------------------------------------------
+Function Name:
+    SysTick_Poll_Periodic_Timer
+
+Function Description:
+    Poll a given periodic timeout timer and return true if a timeout has 
+    occured, otherwise return false.
+
+    If a timeout has occured, the last timeout time in the given timeout 
+    timer is set to the time now.
+
+Parameters:
+    p_timer: pointer to the timeout timer.
+
+Returns:
+    true if a timeout occured, else false.
+
+Assumptions/Limitations:
+    Assumes that the data in the given timeout timer is sensible.
+------------------------------------------------------------------------------*/
+bool SysTick_Poll_Periodic_Timer(SysTick_Timeout_Timer_t * p_timer);
 
 #endif
