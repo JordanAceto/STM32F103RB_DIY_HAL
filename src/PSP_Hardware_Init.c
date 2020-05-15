@@ -199,6 +199,9 @@ static void GPIO_Init(void)
     // enable the clock control for port A
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN_FLAG;
 
+    // enable the clock control for port C
+    RCC->APB2ENR |= RCC_APB2ENR_IOPCEN_FLAG;
+
     GPIO_Pin_t LED_pin;
     LED_pin.number = 5u;
     LED_pin.port = GPIO_Port_A;
