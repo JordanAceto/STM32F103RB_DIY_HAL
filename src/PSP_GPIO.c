@@ -68,13 +68,21 @@
 void PSP_GPIO_Set_Pin_Mode(GPIO_Pin_t * p_GPIO_pin, 
                            GPIO_Pin_Initialization_Data_t * p_init_data)
 {
-    const uint32_t CNFy_and_MODEy_mask = ~(0xFu << (p_GPIO_pin->number << 2u));
+    /* 
+    The config setting for a given GPIO pin takes up 4 bits in CR<L/H>. 
+    CR<L/H> each cover 8 GPIO pins, so we need the [(pin-num % 8) * 4] to 
+    get the pin position.
+    */
+    const uint32_t CRn_register_offset = (p_GPIO_pin->number % 8u) << 2u;
+
+    // 4 bit mask to avoid overwriting other pins
+    const uint32_t CNFy_and_MODEy_mask = ~(0xFu << CRn_register_offset);
 
     // shuffle the CNFy and MODEy settings so that they take up 4 bits
     uint32_t configuration_word = (p_init_data->CNFy << 2u);
     configuration_word |= p_init_data->MODEy;
     // and shift them to the correct position for the given pin
-    configuration_word <<= (p_GPIO_pin->number << 2u);
+    configuration_word <<= CRn_register_offset;
 
     // pins 0...7 go in the "low" port configuration register
     if (p_GPIO_pin->number < 8u)
