@@ -59,6 +59,7 @@ all: demo
 demo: $(C_OBJECT_FILES) $(BIN_DIR)
 	$(COMPILER) $(C_FLAGS) $(EXAMPLES_DIR)$(TARGET).c -o $(BIN_DIR)$(TARGET).o
 	make $(BIN_DIR)$(TARGET).bin
+	make write
 
 # compile the user provided application c source files
 $(BIN_DIR)%.o: $(SRC_DIR)%.c
