@@ -95,7 +95,7 @@
 
 /*
 --| NAME: periodic_timer
---| DESCRIPTION: periodic timeout timer structure for scheduling the LED blink
+--| DESCRIPTION: periodic timeout timer structure for scheduling the data transfer
 --| TYPE: SysTick_Timeout_Timer_t
 */
 SysTick_Timeout_Timer_t periodic_timer;
