@@ -50,7 +50,7 @@
 
 /*
 --| NAME: SPI_t
---| DESCRIPTION: SPIn structure
+--| DESCRIPTION: SPIn register structure
 */
 typedef struct SPI_Type
 {
@@ -135,11 +135,11 @@ typedef enum SPI_SR_FLAGS_Enumeration
 
 /*
 --| NAME: SPI_Transaction_Handle_t
---| DESCRIPTION: 
+--| DESCRIPTION: handle to an SPI transaction
 */
 typedef struct SPI_Transaction_Handle_Type
 {
-    SPI_t * p_SPI;
+    volatile SPI_t * p_SPI;
     
     GPIO_Pin_t * p_mosi_pin;
     GPIO_Pin_t * p_miso_pin;
