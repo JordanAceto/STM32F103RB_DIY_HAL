@@ -20,6 +20,7 @@
 */
 
 #include "Common_Typedefs.h"
+#include "PSP_GPIO.h"
 #include "PSP_Peripherals_Memory_Map.h"
 
 /*
