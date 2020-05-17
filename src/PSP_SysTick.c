@@ -109,7 +109,7 @@ void SysTick_Start_Timeout_Timer(SysTick_Timeout_Timer_t * p_timer)
 
 bool SysTick_Poll_One_Shot_Timer(SysTick_Timeout_Timer_t * p_timer)
 {
-    return (SysTick_Get_mSec() - p_timer->timeout_start_mSec) > p_timer->timeout_period_mSec;
+    return (SysTick_Get_mSec() - p_timer->timeout_start_mSec) >= p_timer->timeout_period_mSec;
 }
 
 bool SysTick_Poll_Periodic_Timer(SysTick_Timeout_Timer_t * p_timer)
