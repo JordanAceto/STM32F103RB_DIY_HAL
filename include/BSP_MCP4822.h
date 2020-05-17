@@ -96,7 +96,8 @@ Returns:
     None
 
 Assumptions/Limitations:
-    Assumes that the given SPI handle is configured for MSB first transfers.
+    Assumes that the given SPI handle is configured for MSB first transfers,
+    and 16 bit mode.
 ------------------------------------------------------------------------------*/
 void MCP4822_Write(SPI_Transaction_Handle_t * p_SPI_handle,
                    MCP4822_Channel_enum channel,
