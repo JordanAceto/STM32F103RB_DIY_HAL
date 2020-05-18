@@ -365,12 +365,12 @@ typedef enum RCC_APB1ENR_FLAGS_Enumeration
     RCC_APB1ENR_SPI3EN_FLAG  = (1u << 15u), // SPI 3 clock enable [rw]
     RCC_APB1ENR_SPI2EN_FLAG  = (1u << 14u), // SPI 2 clock enable [rw]
     RCC_APB1ENR_WWDGEN_FLAG  = (1u << 11u), // Window watchdog clock enable [rw]
-    RCC_APB1ENR_TIM7ENN_FLAG = (1u << 5u),  // Timer 7 clock enable [rw]
-    RCC_APB1ENR_TIM6ENN_FLAG = (1u << 4u),  // Timer 6 clock enable [rw]
-    RCC_APB1ENR_TIM5ENN_FLAG = (1u << 3u),  // Timer 5 clock enable [rw]
-    RCC_APB1ENR_TIM4ENN_FLAG = (1u << 2u),  // Timer 4 clock enable [rw]
-    RCC_APB1ENR_TIM3ENN_FLAG = (1u << 1u),  // Timer 3 clock enable [rw]
-    RCC_APB1ENR_TIM2ENN_FLAG = (1u << 0u),  // Timer 2 clock enable [rw]
+    RCC_APB1ENR_TIM7EN_FLAG  = (1u << 5u),  // Timer 7 clock enable [rw]
+    RCC_APB1ENR_TIM6EN_FLAG  = (1u << 4u),  // Timer 6 clock enable [rw]
+    RCC_APB1ENR_TIM5EN_FLAG  = (1u << 3u),  // Timer 5 clock enable [rw]
+    RCC_APB1ENR_TIM4EN_FLAG  = (1u << 2u),  // Timer 4 clock enable [rw]
+    RCC_APB1ENR_TIM3EN_FLAG  = (1u << 1u),  // Timer 3 clock enable [rw]
+    RCC_APB1ENR_TIM2EN_FLAG  = (1u << 0u),  // Timer 2 clock enable [rw]
 } RCC_APB1ENR_FLAGS_enum;
 
 /*
