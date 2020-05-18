@@ -220,7 +220,7 @@ typedef enum TIMx_SMCR_TS_MASKS_Enumeration
     TIMx_CR2_SMCR_TS_INT_TRIG_3             = 0b011u, // Internal Trigger 3 (ITR3)
     TIMx_CR2_SMCR_TS_TI1_EDGE_DETECT        = 0b100u, // TI1 Edge Detector (TI1F_ED)
     TIMx_CR2_SMCR_TS_FILTERED_TIMER_INPUT_1 = 0b101u, // Filtered Timer Input 1 (TI1FP1)
-    TIMx_CR2_SMCR_TS_FILTERED_TIMER_INPUT_1 = 0b110u, // Filtered Timer Input 2 (TI2FP2)
+    TIMx_CR2_SMCR_TS_FILTERED_TIMER_INPUT_2 = 0b110u, // Filtered Timer Input 2 (TI2FP2)
     TIMx_CR2_SMCR_TS_EXTERNAL_TRIGGER_INPUT = 0b111u, // External Trigger input (ETRF)
     TIMx_CR2_SMCR_TS_SHIFT_AMT              = 4u,     // position of TS in TIMx SMCR
 } TIMx_SMCR_TS_MASKS_enum;
@@ -492,7 +492,7 @@ typedef enum TIMx_CCMR2_CC4S_MASKS_Enumeration
 --| NAME: TIMx_CCMR2_OC3M_MASKS_enum
 --| DESCRIPTION: TIMx CCMR2 Output compare 3 mode masks [3 bits, rw]
 */
-typedef enum TIMx_CCMR1_OC1M_MASKS_Enumeration
+typedef enum TIMx_CCMR2_OC3M_MASKS_Enumeration
 {
     TIMx_CCMR2_OC3M_FROZEN                  = 0b000u, // Frozen
     TIMx_CCMR2_OC3M_ACTIVE_LEVEL_ON_MATCH   = 0b001u, // Set channel 3 to active level on match
