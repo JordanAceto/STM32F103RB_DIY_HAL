@@ -122,14 +122,7 @@ void PSP_GPIO_Write_Pin(GPIO_Pin_t * p_GPIO_pin,
 
 void PSP_GPIO_Toggle_Pin(GPIO_Pin_t * p_GPIO_pin)
 {
-    if ((p_GPIO_pin->port->ODR >> p_GPIO_pin->number) & 1u)
-    {
-        p_GPIO_pin->port->BRR = (1u << p_GPIO_pin->number);
-    }
-    else
-    {
-        p_GPIO_pin->port->BSRR = (1u << p_GPIO_pin->number);
-    }
+    p_GPIO_pin->port->ODR ^= (1u << p_GPIO_pin->number);
 }
 
 GPIO_Pin_Input_Read_enum PSP_GPIO_Read_Pin(GPIO_Pin_t * p_GPIO_pin)
