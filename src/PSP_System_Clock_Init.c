@@ -2,12 +2,12 @@
 --|----------------------------------------------------------------------------|
 --| FILE DESCRIPTION:
 --|   PSP_Hardware_Init.c provides the implementation for initializing
---|   the hardware.
+--|   the RCC and SysTick hardware.
 --|   
 --|----------------------------------------------------------------------------|
 --| REFERENCES:
---|   None.
---|
+--|   RCC: stm32f10x reference manual, page 99
+--|   SysTick: PM0056 programming manual, page 150
 --|----------------------------------------------------------------------------|
 */
 
@@ -18,9 +18,8 @@
 */
 
 #include "Common_Masks.h"
-#include "PSP_GPIO.h"
-#include "PSP_Hardware_Init.h"
 #include "PSP_RCC.h"
+#include "PSP_System_Clock_Init.h"
 #include "PSP_SysTick.h"
 
 /*
@@ -63,10 +62,10 @@
 
 /*------------------------------------------------------------------------------
 Function Name:
-    Clock_Init
+    RCC_Init
 
 Function Description:
-    Perform Clock initialization 
+    Perform RCC register Clock initialization 
 
 Parameters:
     None
@@ -77,7 +76,7 @@ Returns:
 Assumptions/Limitations:
     None
 ------------------------------------------------------------------------------*/
-static void Clock_Init(void);
+static void RCC_Init(void);
 
 /*------------------------------------------------------------------------------
 Function Name:
@@ -97,35 +96,16 @@ Assumptions/Limitations:
 ------------------------------------------------------------------------------*/
 static void SysTick_Init(void);
 
-/*------------------------------------------------------------------------------
-Function Name:
-    GPIO_Init
-
-Function Description:
-    Perform GPIO initialization 
-
-Parameters:
-    None
-
-Returns:
-    None
-
-Assumptions/Limitations:
-    None
-------------------------------------------------------------------------------*/
-static void GPIO_Init(void);
-
 /*
 --|----------------------------------------------------------------------------|
 --| PUBLIC FUNCTION DEFINITIONS
 --|----------------------------------------------------------------------------|
 */
 
-void Hardware_Init(void)
+void System_Clock_Init(void)
 {
-    Clock_Init();
+    RCC_Init();
     SysTick_Init();
-    GPIO_Init();
 }
 
 /*
@@ -134,7 +114,7 @@ void Hardware_Init(void)
 --|----------------------------------------------------------------------------|
 */
 
-static void Clock_Init(void)
+static void RCC_Init(void)
 {
     // enable the internal high speed clock
     RCC->CR |= RCC_CR_HSION_FLAG;
@@ -192,24 +172,4 @@ static void SysTick_Init(void)
 
     // enable the SysTick counter
     SysTick->CTRL |= SysTick_CTRL_ENABLE_FLAG;
-}
-
-static void GPIO_Init(void)
-{
-    // enable the clock control for port A
-    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN_FLAG;
-
-    // enable the clock control for port C
-    RCC->APB2ENR |= RCC_APB2ENR_IOPCEN_FLAG;
-
-    GPIO_Pin_t LED_pin;
-    LED_pin.number = 5u;
-    LED_pin.port = GPIO_Port_A;
-
-    // set the led pin as ouput
-    GPIO_Pin_Initialization_Data_t init_data = {0};
-    init_data.CNFy         = GPIO_PIN_CNFy_GENERAL_PURPOSE_OUTPUT_PUSH_PULL;
-    init_data.MODEy        = GPIO_PIN_MODEy_OUTPUT_10MHz_MAX;
-    init_data.pull_up_down = GPIO_PIN_NO_PULL_UP_OR_DOWN;
-    PSP_GPIO_Set_Pin_Mode(&LED_pin, &init_data);
 }

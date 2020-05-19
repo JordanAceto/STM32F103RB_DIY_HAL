@@ -1,8 +1,8 @@
 /*
 --|----------------------------------------------------------------------------|
 --| FILE DESCRIPTION:
---|   simple_blink.c provides a simple demo which blinks the onboard LED using
---|   the SysTick timer.
+--|   simple_sysTick_blink.c provides a simple demo which blinks the onboard LED 
+--|   using the SysTick timer.
 --|  
 --|   Following this example should give you an idea of how to use the SysTick
 --|   timer and basic GPIO pin writing.
@@ -25,8 +25,8 @@
 */
 
 #include "PSP_GPIO.h"
+#include "PSP_RCC.h"
 #include "PSP_SysTick.h"
-#include "PSP_Hardware_Init.h"
 
 /*
 --|----------------------------------------------------------------------------|
@@ -39,7 +39,7 @@
 --| DESCRIPTION: blink time for the onboard LED in milliseconds
 --| TYPE: uint32_t
 */
-#define LED_BLINK_TIME_mSec (1000u)
+#define LED_BLINK_TIME_mSec (100u)
 
 /*
 --| NAME: LED_PIN_NUMBER
@@ -89,7 +89,23 @@ SysTick_Timeout_Timer_t periodic_timer;
 --| DESCRIPTION: GPIO pin structure for blinking the LED
 --| TYPE: GPIO_Pin_t
 */
-GPIO_Pin_t LED_pin;
+GPIO_Pin_t LED_pin =
+{
+    LED_GPIO_PORT,
+    LED_PIN_NUMBER
+};
+
+/*
+--| NAME: LED_pin_init_data
+--| DESCRIPTION: initialization data for the LED pin
+--| TYPE: GPIO_Pin_Initialization_Data_t
+*/
+GPIO_Pin_Initialization_Data_t LED_pin_init_data = 
+{
+    GPIO_PIN_CNFy_GENERAL_PURPOSE_OUTPUT_PUSH_PULL,
+    GPIO_PIN_MODEy_OUTPUT_10MHz_MAX,
+    GPIO_PIN_NO_PULL_UP_OR_DOWN
+};
 
 /*
 --|----------------------------------------------------------------------------|
@@ -123,18 +139,19 @@ int main(void);
 
 int main(void)
 {
-    Hardware_Init();
+    // enable the clock control for GPIO port A
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN_FLAG;
 
-    periodic_timer.timeout_period_mSec = LED_BLINK_TIME_mSec;
-
-    SysTick_Start_Timeout_Timer(&periodic_timer);
-
-    LED_pin.number = LED_PIN_NUMBER;
-    LED_pin.port = LED_GPIO_PORT;
+    // set the led pin as ouput    
+    PSP_GPIO_Set_Pin_Mode(&LED_pin, &LED_pin_init_data);
 
     // write the pin high right away, so you see the LED light up immediately
     PSP_GPIO_Write_Pin(&LED_pin, GPIO_PIN_OUTPUT_WRITE_HIGH);
 
+    periodic_timer.timeout_period_mSec = LED_BLINK_TIME_mSec;
+
+    SysTick_Start_Timeout_Timer(&periodic_timer);
+    
     while (1)
     {
         if (SysTick_Poll_Periodic_Timer(&periodic_timer))

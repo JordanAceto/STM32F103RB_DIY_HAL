@@ -18,10 +18,10 @@
 --|----------------------------------------------------------------------------|
 */
 
-#include "BSP_SN74HC595.h"
 #include "PSP_GPIO.h"
+#include "PSP_RCC.h"
+#include "BSP_SN74HC595.h"
 #include "PSP_SysTick.h"
-#include "PSP_Hardware_Init.h"
 
 /*
 --|----------------------------------------------------------------------------|
@@ -191,7 +191,8 @@ int main(void);
 
 int main(void)
 {
-    Hardware_Init();
+    // enable the clock control for GPIO port C
+    RCC->APB2ENR |= RCC_APB2ENR_IOPCEN_FLAG;
 
     BSP_SN74HC595_Init(&SN74HC595);
 

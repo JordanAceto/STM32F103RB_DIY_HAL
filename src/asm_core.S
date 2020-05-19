@@ -49,5 +49,9 @@ reset_handler:
             CMP     r1,     r2
             BCC     reset_bss
 
+/* initialize the system clock */
+BL  System_Clock_Init
+
+/* branch to main */
 B   main
 .size reset_handler, .-reset_handler

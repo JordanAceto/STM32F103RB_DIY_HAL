@@ -143,21 +143,7 @@ void SPI_Init(SPI_Transaction_Handle_t * p_SPI_handle,
 
 void SPI_Send_8(SPI_Transaction_Handle_t * p_SPI_handle, uint8_t data)
 {
-    while (!(p_SPI_handle->p_SPI->SR & SPI_SR_TXE_FLAG))
-    {
-        // wait until Tx buffer is empty
-    }
-
-    PSP_GPIO_Write_Pin(p_SPI_handle->p_ss_pin, 0u);
-    
-    p_SPI_handle->p_SPI->DR = data;
-    
-    while (p_SPI_handle->p_SPI->SR & SPI_SR_BSY_FLAG)
-    {
-        // wait for transmission to complete
-    }
-
-    PSP_GPIO_Write_Pin(p_SPI_handle->p_ss_pin, 1u);
+    SPI_Send_16(p_SPI_handle, data);
 }
 
 void SPI_Send_16(SPI_Transaction_Handle_t * p_SPI_handle, uint16_t data)

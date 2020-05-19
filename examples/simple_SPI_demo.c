@@ -21,7 +21,6 @@
 #include "PSP_RCC.h"
 #include "PSP_SPI.h"
 #include "PSP_SysTick.h"
-#include "PSP_Hardware_Init.h"
 
 /*
 --|----------------------------------------------------------------------------|
@@ -190,7 +189,8 @@ int main(void);
 
 int main(void)
 {
-    Hardware_Init();
+    // enable the clock control for GPIO port A
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN_FLAG;
 
     // enable SPI1 clock
     RCC->APB2ENR |= RCC_APB2ENR_SPI1EN_FLAG;
@@ -213,10 +213,8 @@ int main(void)
     {
         if (SysTick_Poll_Periodic_Timer(&periodic_timer))
 		{
-
             SPI_Send_16(&SPI_handle, val_to_write);
             val_to_write++;
-            
 		}
     }
 
