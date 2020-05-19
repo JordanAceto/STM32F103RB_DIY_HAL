@@ -97,7 +97,7 @@ Function Name:
     main
 
 Function Description:
-    main application function which blinks the onboard LED in an endless loop. 
+    main application function which blinks the LED in an endless loop. 
 
 Parameters:
     None
