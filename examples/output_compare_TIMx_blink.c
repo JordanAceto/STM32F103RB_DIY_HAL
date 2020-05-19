@@ -121,7 +121,7 @@ int main(void)
     // enable the clock control for GPIO port A
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN_FLAG;
 
-    // set the led pin as ouput    
+    // set the led pin as alternate function output    
     PSP_GPIO_Set_Pin_Mode(&LED_pin, &LED_pin_init_data);
 
     // enable timer 2 clock
